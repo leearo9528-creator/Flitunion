@@ -30,15 +30,18 @@ export default function HeroSection() {
           >
             공간에 생명을 불어넣는
             <br />
-            <span className="text-brand">플리마켓 운영 대행</span>
+            <span className="text-brand">행사 운영 대행</span>
             <br />
-            플릿 유니온
+            플릿유니온
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
-            유휴공간을 수익 창출의 거점으로. 대학교 축제부터 대형 카페까지 —&nbsp;
-            플릿에서 검증된 셀러 네트워크로{" "}
-            <strong className="text-white">원스톱으로 책임집니다.</strong>
+            유휴공간을 수익 창출의 거점으로.
+            <br />
+            소형 공간부터 대형 축제까지 —&nbsp;플릿에서 검증된 셀러 네트워크로
+            <br />
+            <strong className="text-white text-xl">원스톱</strong>
+            <span className="text-gray-300">으로 책임집니다.</span>
           </p>
 
           {/* CTA Buttons */}
@@ -54,7 +57,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold text-lg rounded-xl border border-white/20 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold text-lg rounded-xl border border-white/20 transition-colors"
             >
               운영 사례 보기
             </a>
