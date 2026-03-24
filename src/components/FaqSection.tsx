@@ -43,19 +43,30 @@ function FaqItem({
   question: string; answer: string; isOpen: boolean; onToggle: () => void; index: number;
 }) {
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
+    <div
+      className="rounded-xl overflow-hidden transition-all"
+      style={{
+        border: isOpen ? "1px solid #bfdbfe" : "1px solid #e5e7eb",
+        boxShadow: isOpen ? "0 2px 12px rgba(49,130,246,0.08)" : "none",
+      }}
+    >
       <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between px-6 py-5 text-left transition-colors"
+        style={{ background: isOpen ? "#eff6ff" : "#ffffff" }}
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${index}`}
         id={`faq-question-${index}`}
+        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.background = "#f9fafb"; }}
+        onMouseLeave={e => { if (!isOpen) e.currentTarget.style.background = "#ffffff"; }}
       >
         <span className="font-semibold text-gray-900 text-sm leading-snug pr-4">{question}</span>
         <span
-          className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full border-2 transition-all ${
-            isOpen ? "bg-brand border-brand text-white rotate-180" : "border-gray-300 text-gray-400"
-          }`}
+          className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full border-2 transition-all"
+          style={isOpen
+            ? { background: "#3182f6", borderColor: "#3182f6", color: "#fff", transform: "rotate(180deg)" }
+            : { background: "transparent", borderColor: "#d1d5db", color: "#9ca3af" }
+          }
           aria-hidden="true"
         >
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +80,7 @@ function FaqItem({
         aria-labelledby={`faq-question-${index}`}
         className={`transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0 overflow-hidden"}`}
       >
-        <p className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{answer}</p>
+        <p className="px-6 pb-5 text-gray-700 text-sm leading-relaxed">{answer}</p>
       </div>
     </div>
   );
@@ -79,23 +90,23 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 bg-white" aria-labelledby="faq-heading">
+    <section id="faq" className="py-20" style={{ background: "#f8fafc" }} aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="text-center mb-14">
-          <span className="inline-block text-brand text-sm font-semibold uppercase tracking-widest mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#3182f6" }}>
             FAQ
           </span>
           <h2 id="faq-heading" className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
             자주 묻는 질문
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             플리마켓·야시장·푸드트럭 운영 의뢰 전, 궁금한 점을 미리 확인하세요.
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {faqs.map((faq, index) => (
             <FaqItem
               key={index}
@@ -108,11 +119,14 @@ export default function FaqSection() {
           ))}
         </div>
 
-        <div className="mt-10 bg-brand-light border border-brand-border rounded-2xl p-6 text-center">
-          <p className="text-gray-700 font-medium mb-3 text-sm">더 궁금한 점이 있으신가요?</p>
+        <div className="mt-8 rounded-2xl p-6 text-center" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
+          <p className="text-gray-800 font-semibold mb-3 text-sm">더 궁금한 점이 있으신가요?</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-brand font-bold text-sm hover:text-brand-dark transition-colors"
+            className="inline-flex items-center gap-2 font-bold text-sm transition-colors"
+            style={{ color: "#3182f6" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#1b64da")}
+            onMouseLeave={e => (e.currentTarget.style.color = "#3182f6")}
           >
             직접 상담 문의하기
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -44,44 +44,53 @@ const steps = [
 
 export default function ProblemSolutionSection() {
   return (
-    <section id="problem-solution" className="py-20 bg-gray-50" aria-labelledby="problem-solution-heading">
+    <section id="problem-solution" className="py-20 bg-white" aria-labelledby="problem-solution-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="text-center mb-14">
-          <span className="inline-block text-brand text-sm font-semibold uppercase tracking-widest mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#3182f6" }}>
             Why Flit Union
           </span>
           <h2 id="problem-solution-heading" className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
             공간의 문제, 플릿 유니온이 해결합니다
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
             많은 분들이 이런 고민을 하고 계십니다. 우리가 그 답을 제시합니다.
           </p>
         </div>
 
         {/* Problem/Solution Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {problems.map((item, index) => (
             <article
               key={index}
-              className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all"
+              className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all"
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
-              <div className="text-4xl mb-4" aria-hidden="true">{item.icon}</div>
+              <div className="text-3xl mb-4" aria-hidden="true">{item.icon}</div>
               <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug">{item.question}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{item.answer}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
             </article>
           ))}
         </div>
 
         {/* Flit Trust Banner */}
-        <div className="mt-14 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-brand-light border border-brand-border">
-          <div className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-white text-xl font-black bg-brand" aria-hidden="true">
+        <div className="mt-12 rounded-2xl p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+          style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}
+        >
+          <div
+            className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-white text-lg font-black"
+            style={{ background: "#3182f6" }}
+            aria-hidden="true"
+          >
             F
           </div>
           <div className="flex-1">
-            <p className="text-brand text-sm font-semibold mb-1">플릿(Flit) 셀러 리뷰 플랫폼 연계</p>
-            <h3 className="text-lg font-black text-gray-900 mb-1">셀러 리뷰 점수가 검증한 마켓 운영사</h3>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#3182f6" }}>
+              플릿(Flit) 셀러 리뷰 플랫폼 연계
+            </p>
+            <h3 className="text-base font-black text-gray-900 mb-1">셀러 리뷰 점수가 검증한 마켓 운영사</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               플릿에 참가한 셀러들의 실제 리뷰와 평점을 기반으로 운영 퀄리티를 지속 관리합니다.
               다른 대행사가 갖지 못한 데이터 기반 운영 역량입니다.
@@ -90,18 +99,31 @@ export default function ProblemSolutionSection() {
         </div>
 
         {/* Process Steps */}
-        <div className="mt-14">
-          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 text-center leading-tight mb-10">
-            의뢰부터 행사 완료까지, 4단계 원스톱 프로세스
-          </h2>
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
-            {steps.map((item) => (
-              <li key={item.step} className="bg-white rounded-2xl p-6 border border-gray-100">
-                <span className="block text-5xl font-black text-brand-light mb-4 leading-none" aria-hidden="true">
-                  {item.step}
-                </span>
+        <div className="mt-16">
+          <div className="text-center mb-10">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#3182f6" }}>
+              Process
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
+              의뢰부터 행사 완료까지, 4단계 원스톱 프로세스
+            </h2>
+          </div>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" role="list">
+            {steps.map((item, i) => (
+              <li key={item.step} className="bg-white rounded-2xl p-6 border border-gray-100 relative"
+                style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
+              >
+                {/* Step badge */}
+                <div
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-xs font-black mb-4"
+                  style={{ background: "#3182f6" }}
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </div>
+                <p className="text-xs font-bold text-gray-400 mb-1 uppercase tracking-wider">{item.step}</p>
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
               </li>
             ))}
           </ol>

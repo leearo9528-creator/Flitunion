@@ -3,13 +3,14 @@
 @theme {
   --color-brand: #3182f6;
   --color-brand-dark: #1b64da;
-  --color-brand-light: #ebf3fe;
+  --color-brand-light: #eff6ff;
   --color-brand-border: #bfdbfe;
+  --color-surface: #f8fafc;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #191f28;
   --font-sans: var(--font-geist-sans);
 }
 
@@ -17,6 +18,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), "Noto Sans KR", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
