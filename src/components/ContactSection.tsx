@@ -83,7 +83,7 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: "전화 상담",
-                  value: "010-0000-0000",
+                  value: "010-8018-8492",
                   sub: "평일 09:00 – 18:00",
                 },
                 {
@@ -215,7 +215,7 @@ export default function ContactSection() {
                       autoComplete="tel"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="010-0000-0000"
+                      placeholder="010-8018-8492"
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none transition"
                       onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 2px #3182f6")}
                       onBlur={(e) => (e.currentTarget.style.boxShadow = "")}

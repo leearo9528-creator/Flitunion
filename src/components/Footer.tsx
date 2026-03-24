@@ -71,8 +71,8 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white mb-4">연락처</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="tel:+821000000000" className="hover:text-white transition-colors">
-                  010-0000-0000
+                <a href="tel:+821080188492" className="hover:text-white transition-colors">
+                  010-8018-8492
                 </a>
               </li>
               <li>

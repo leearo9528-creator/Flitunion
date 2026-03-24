@@ -8,7 +8,7 @@ export default function JsonLd() {
     logo: "https://flitunion.co.kr/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+82-10-0000-0000",
+      telephone: "+82-10-8018-8492",
       contactType: "customer service",
       areaServed: "KR",
       availableLanguage: "Korean",
