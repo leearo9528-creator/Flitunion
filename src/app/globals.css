@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #3182f6;
+  --color-brand-dark: #1b64da;
+  --color-brand-light: #ebf3fe;
+  --color-brand-border: #bfdbfe;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --font-sans: var(--font-geist-sans);
-
-  /* Flit Union — Toss Blue System */
-  --color-primary: #3182f6;
-  --color-primary-dark: #1b64da;
-  --color-primary-light: #ebf3fe;
 }
 
 body {
@@ -19,4 +21,5 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px;
 }
