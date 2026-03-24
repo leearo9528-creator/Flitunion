@@ -1,61 +1,11 @@
-const portfolioItems = [
-  {
-    tag: "캠퍼스 마켓",
-    location: "서울 마포구",
-    title: "홍익대학교 대동제 플리마켓 운영 사례",
-    desc: "3일간 150개 부스 운영. 재학생 80명, Flit 인증 외부 셀러 70명 참가. 야시장 연계 야간 운영으로 방문자 12,000명 달성.",
-    stats: [{ label: "운영 일수", value: "3일" }, { label: "셀러", value: "150팀" }, { label: "방문자", value: "12,000명" }],
-    tagClass: "bg-blue-100 text-blue-700",
-    borderClass: "border-blue-100",
-  },
-  {
-    tag: "야시장",
-    location: "서울 영등포구",
-    title: "한강공원 여름 야시장 행사 운영 사례",
-    desc: "야간 6시간 운영, 푸드트럭 20대 + 플리마켓 셀러 50팀 복합 구성. 조명·무대·음향 렌탈 포함 원스톱 운영.",
-    stats: [{ label: "푸드트럭", value: "20대" }, { label: "셀러", value: "50팀" }, { label: "일 방문자", value: "3,500명" }],
-    tagClass: "bg-indigo-100 text-indigo-700",
-    borderClass: "border-indigo-100",
-  },
-  {
-    tag: "카페 마켓",
-    location: "서울 강남구",
-    title: "강남 대형 카페 브런치 마켓 운영 사례",
-    desc: "200석 규모 카페 홀 활용, 핸드메이드 & 빈티지 콘셉트 월 2회 정기 운영. 카페 주말 매출 40% 증가.",
-    stats: [{ label: "운영 주기", value: "월 2회" }, { label: "참가 셀러", value: "30팀" }, { label: "매출 증가", value: "+40%" }],
-    tagClass: "bg-amber-100 text-amber-700",
-    borderClass: "border-amber-100",
-  },
-  {
-    tag: "공간 수익화",
-    location: "서울 성동구",
-    title: "성수동 복합문화공간 주말 팝업마켓 사례",
-    desc: "평일 비어있는 1·2층 공간 주말 플리마켓 전환. 렌탈 장비 일체 제공, 월 임대 외 추가 수익 창출.",
-    stats: [{ label: "공간 면적", value: "330㎡" }, { label: "월 운영", value: "4회" }, { label: "렌탈 장비", value: "일체 포함" }],
-    tagClass: "bg-green-100 text-green-700",
-    borderClass: "border-green-100",
-  },
-  {
-    tag: "캠퍼스 마켓",
-    location: "서울 광진구",
-    title: "건국대학교 봄 축제 야외 플리마켓 사례",
-    desc: "교내 야외 공간 2일 운영. 푸드트럭 8대 섭외 포함. Flit 기반 학생 창업 셀러 우선 선발.",
-    stats: [{ label: "푸드트럭", value: "8대" }, { label: "학생 셀러", value: "60%" }, { label: "방문자", value: "8,000명" }],
-    tagClass: "bg-purple-100 text-purple-700",
-    borderClass: "border-purple-100",
-  },
-  {
-    tag: "브랜드 팝업",
-    location: "경기 성남시",
-    title: "분당 프리미엄 아울렛 시즌 팝업마켓 사례",
-    desc: "추석 시즌 5일간 야외 광장 팝업 마켓. 텐트·조명·배너 등 장비 전량 렌탈 제공.",
-    stats: [{ label: "운영 일수", value: "5일" }, { label: "셀러", value: "80팀" }, { label: "일 방문자", value: "2,500명" }],
-    tagClass: "bg-rose-100 text-rose-700",
-    borderClass: "border-rose-100",
-  },
-];
+"use client";
+
+import { useState } from "react";
+import { portfolioItems } from "@/data/portfolio";
 
 export default function PortfolioSection() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
   return (
     <section id="portfolio" className="py-20 bg-gray-50" aria-labelledby="portfolio-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,36 +20,95 @@ export default function PortfolioSection() {
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
             플리마켓·야시장·푸드트럭·렌탈까지, 전국 다양한 공간의 실제 운영 사례입니다.
+            <br />
+            <span className="text-sm text-gray-400">카드를 클릭하면 상세 내용을 확인할 수 있습니다.</span>
           </p>
         </div>
 
         {/* Portfolio Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioItems.map((item, index) => (
-            <article
-              key={index}
-              className={`bg-white rounded-2xl p-6 border ${item.borderClass} hover:shadow-md hover:-translate-y-1 transition-all`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className={`text-xs font-semibold px-3 py-1 rounded-full ${item.tagClass}`}>
-                  {item.tag}
-                </span>
-                <span className="text-xs text-gray-400">{item.location}</span>
+          {portfolioItems.map((item) => {
+            const isOpen = openId === item.id;
+            return (
+              <div key={item.id} className={`lg:col-span-1 ${isOpen ? "sm:col-span-2 lg:col-span-3" : ""} transition-all`}>
+                <article
+                  className={`bg-white rounded-2xl border ${item.borderClass} transition-all overflow-hidden ${isOpen ? "shadow-lg" : "hover:shadow-md hover:-translate-y-1"}`}
+                >
+                  {/* Card Header — always visible */}
+                  <button
+                    className="w-full text-left p-6 focus:outline-none"
+                    onClick={() => setOpenId(isOpen ? null : item.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`portfolio-detail-${item.id}`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-4">
+                          <span className={`text-xs font-semibold px-3 py-1 rounded-full ${item.tagClass}`}>
+                            {item.tag}
+                          </span>
+                          <span className="text-xs text-gray-400">{item.location}</span>
+                        </div>
+                        <h3 className="text-sm font-bold text-gray-900 mb-3 leading-snug">{item.title}</h3>
+                        <p className="text-xs text-gray-500 leading-relaxed mb-5">{item.desc}</p>
+                        <dl className="grid grid-cols-3 gap-2 border-t border-gray-100 pt-4">
+                          {item.stats.map((stat) => (
+                            <div key={stat.label} className="text-center">
+                              <dd className="text-sm font-bold text-gray-900">{stat.value}</dd>
+                              <dt className="text-xs text-gray-400 mt-0.5">{stat.label}</dt>
+                            </div>
+                          ))}
+                        </dl>
+                      </div>
+                    </div>
+
+                    {/* Toggle hint */}
+                    <div className="flex items-center justify-center gap-1.5 mt-4 pt-4 border-t border-gray-100">
+                      <span className="text-xs text-gray-400 font-medium">
+                        {isOpen ? "접기" : "상세 보기"}
+                      </span>
+                      <svg
+                        className={`w-3.5 h-3.5 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </button>
+
+                  {/* Expandable Detail */}
+                  {isOpen && (
+                    <div
+                      id={`portfolio-detail-${item.id}`}
+                      className="border-t border-gray-100 bg-gray-50 px-6 py-6"
+                    >
+                      <p className="text-sm text-gray-600 leading-relaxed mb-6">{item.fullDesc}</p>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        {item.details.map((detail) => (
+                          <div key={detail.title} className="bg-white rounded-xl p-4 border border-gray-100">
+                            <h4 className="text-xs font-bold text-brand mb-2">{detail.title}</h4>
+                            <p className="text-xs text-gray-600 leading-relaxed">{detail.content}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-6 text-center">
+                        <a
+                          href="#contact"
+                          className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-xl transition-colors"
+                          onClick={() => setOpenId(null)}
+                        >
+                          이런 행사 의뢰하기
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </article>
               </div>
-
-              <h3 className="text-sm font-bold text-gray-900 mb-3 leading-snug">{item.title}</h3>
-              <p className="text-xs text-gray-500 leading-relaxed mb-5">{item.desc}</p>
-
-              <dl className="grid grid-cols-3 gap-2 border-t border-gray-100 pt-4">
-                {item.stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <dd className="text-sm font-bold text-gray-900">{stat.value}</dd>
-                    <dt className="text-xs text-gray-400 mt-0.5">{stat.label}</dt>
-                  </div>
-                ))}
-              </dl>
-            </article>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA Banner */}
