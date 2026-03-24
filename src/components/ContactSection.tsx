@@ -126,38 +126,6 @@ export default function ContactSection() {
               ))}
             </ul>
 
-            {/* 플릿 링크 */}
-            <div
-              className="mt-10 flex items-center gap-3 p-4 rounded-xl border"
-              style={{
-                backgroundColor: "rgba(49,130,246,0.1)",
-                borderColor: "rgba(49,130,246,0.2)",
-              }}
-            >
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-sm font-black shrink-0"
-                style={{ backgroundColor: "#3182f6" }}
-                aria-hidden="true"
-              >
-                F
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400">셀러라면?</p>
-                <p className="text-sm font-semibold text-white">
-                  플릿(Flit)에서 마켓 참가 신청하기
-                </p>
-              </div>
-              <a
-                href="https://flit-black.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-bold transition-colors"
-                style={{ color: "#3182f6" }}
-                aria-label="플릿 플랫폼으로 이동"
-              >
-                바로가기 →
-              </a>
-            </div>
           </div>
 
           {/* Right: Form */}

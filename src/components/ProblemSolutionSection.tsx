@@ -93,30 +93,6 @@ export default function ProblemSolutionSection() {
               지속 관리합니다. 다른 대행사가 갖지 못한 데이터 기반 운영 역량입니다.
             </p>
           </div>
-          <a
-            href="https://flit-black.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
-            style={{ color: "#3182f6" }}
-            aria-label="플릿 플랫폼 바로가기"
-          >
-            플릿 바로가기
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
         </div>
 
         {/* Process overview */}

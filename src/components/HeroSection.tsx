@@ -139,11 +139,8 @@ export default function HeroSection() {
           </div>
 
           {/* 플릿 연계 배지 */}
-          <a
-            href="https://flit-black.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 px-5 py-3 rounded-xl border hover:opacity-80 transition-opacity"
+          <div
+            className="mt-10 inline-flex items-center gap-3 px-5 py-3 rounded-xl border"
             style={{
               backgroundColor: "rgba(49,130,246,0.1)",
               borderColor: "rgba(49,130,246,0.2)",
@@ -162,7 +159,7 @@ export default function HeroSection() {
                 플릿(Flit) 셀러 리뷰 플랫폼
               </p>
             </div>
-          </a>
+          </div>
         </div>
       </div>
 
