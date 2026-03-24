@@ -9,9 +9,9 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl font-black text-white">Flit</span>
-              <span className="text-xl font-black text-white px-2 py-0.5 rounded-md bg-brand">Union</span>
+            <div className="flex items-center gap-1 mb-3">
+              <span className="text-2xl font-black text-brand">Flit</span>
+              <span className="text-2xl font-black text-white">Union</span>
             </div>
             <p className="text-sm text-gray-500 mb-3 leading-relaxed">
               플리마켓·야시장·푸드트럭 운영 대행 및 유휴공간 수익화 솔루션

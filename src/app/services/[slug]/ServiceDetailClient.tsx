@@ -11,9 +11,9 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2" aria-label="플릿 유니온 홈으로 이동">
-            <span className="text-xl font-black text-gray-900">Flit</span>
-            <span className="text-xl font-black text-white px-2 py-0.5 rounded-md bg-brand">Union</span>
+          <a href="/" className="flex items-center gap-1" aria-label="플릿 유니온 홈으로 이동">
+            <span className="text-2xl font-black text-brand">Flit</span>
+            <span className="text-2xl font-black text-gray-900">Union</span>
           </a>
           <a href="/#services" className="text-sm font-medium text-gray-600 hover:text-brand transition-colors flex items-center gap-1">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -13,16 +13,14 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2" aria-label="플릿 유니온 홈으로 이동">
-            <span className="text-xl font-black tracking-tight text-gray-900">Flit</span>
-            <span className="text-xl font-black tracking-tight px-2 py-0.5 rounded-md text-white bg-brand">
-              Union
-            </span>
+          <a href="/" className="flex items-center gap-1" aria-label="플릿 유니온 홈으로 이동">
+            <span className="text-2xl font-black tracking-tight text-brand">Flit</span>
+            <span className="text-2xl font-black tracking-tight text-gray-900">Union</span>
           </a>
 
           {/* Desktop Nav */}
