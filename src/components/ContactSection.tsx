@@ -148,7 +148,9 @@ export default function ContactSection() {
                 </p>
               </div>
               <a
-                href="#"
+                href="https://flit-black.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-bold transition-colors"
                 style={{ color: "#3182f6" }}
                 aria-label="플릿 플랫폼으로 이동"

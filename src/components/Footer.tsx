@@ -26,7 +26,9 @@ export default function Footer() {
             </p>
             {/* Flit 링크 */}
             <a
-              href="#"
+              href="https://flit-black.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 text-sm font-medium transition-colors"
               style={{ color: "#3182f6" }}
               aria-label="플릿 플랫폼 바로가기"

@@ -94,7 +94,9 @@ export default function ProblemSolutionSection() {
             </p>
           </div>
           <a
-            href="#"
+            href="https://flit-black.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
             style={{ color: "#3182f6" }}
             aria-label="플릿 플랫폼 바로가기"
