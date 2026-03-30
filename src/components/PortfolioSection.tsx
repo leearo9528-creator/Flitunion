@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { portfolioItems } from "@/data/portfolio";
 
 export default function PortfolioSection() {
@@ -38,6 +39,29 @@ export default function PortfolioSection() {
                   }`}
                   style={{ boxShadow: isOpen ? "0 4px 24px rgba(49,130,246,0.1)" : "0 1px 4px rgba(0,0,0,0.04)" }}
                 >
+                  {/* Thumbnail */}
+                  <div
+                    className="relative w-full h-40 overflow-hidden"
+                    style={{ background: item.placeholderGradient }}
+                    aria-hidden="true"
+                  >
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-end p-4">
+                        <span className="text-white/60 text-xs font-medium">
+                          {item.location}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
                   {/* Card Header */}
                   <button
                     className="w-full text-left p-6 focus:outline-none"

@@ -47,7 +47,7 @@ const contactInfo = [
     label: "카카오채널",
     value: "@flitunion",
     sub: "채팅 상담 가능",
-    href: "#",
+    href: "https://open.kakao.com/o/sZ5YZ4ni",
   },
 ];
 
@@ -74,9 +74,19 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("서버 오류");
+      setSubmitted(true);
+    } catch {
+      alert("문의 접수 중 오류가 발생했습니다. 직접 전화(010-8018-8492)로 연락해 주세요.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = "w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400 transition bg-white";
@@ -130,7 +140,7 @@ export default function ContactSection() {
 
             {/* Trust indicators */}
             <div className="mt-10 pt-8 border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {[
                   { value: "48h", label: "기획안 제안" },
                   { value: "50+", label: "운영 행사" },

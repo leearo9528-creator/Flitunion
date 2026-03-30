@@ -69,7 +69,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="mt-16 flex gap-10">
+          <div className="mt-16 flex flex-wrap gap-8 sm:gap-10">
             {[
               { value: "50+", label: "운영 행사" },
               { value: "500+", label: "Flit 셀러 DB" },

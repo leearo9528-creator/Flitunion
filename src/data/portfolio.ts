@@ -9,6 +9,10 @@ export type PortfolioItem = {
   details: { title: string; content: string }[];
   tagClass: string;
   borderClass: string;
+  /** 실제 이미지 파일 경로 (예: /portfolio/hongik-festival.jpg). 없으면 gradient placeholder 표시 */
+  image?: string;
+  /** 이미지 없을 때 사용하는 CSS gradient */
+  placeholderGradient: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
@@ -32,6 +36,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-blue-100 text-blue-700",
     borderClass: "border-blue-100",
+    placeholderGradient: "linear-gradient(135deg, #1e3a8a 0%, #3182f6 100%)",
   },
   {
     id: "hangang-night",
@@ -53,6 +58,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-indigo-100 text-indigo-700",
     borderClass: "border-indigo-100",
+    placeholderGradient: "linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%)",
   },
   {
     id: "gangnam-cafe",
@@ -74,6 +80,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-amber-100 text-amber-700",
     borderClass: "border-amber-100",
+    placeholderGradient: "linear-gradient(135deg, #78350f 0%, #f59e0b 100%)",
   },
   {
     id: "seongsu-popup",
@@ -95,6 +102,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-green-100 text-green-700",
     borderClass: "border-green-100",
+    placeholderGradient: "linear-gradient(135deg, #14532d 0%, #22c55e 100%)",
   },
   {
     id: "konkuk-festival",
@@ -116,6 +124,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-purple-100 text-purple-700",
     borderClass: "border-purple-100",
+    placeholderGradient: "linear-gradient(135deg, #4a1d96 0%, #a855f7 100%)",
   },
   {
     id: "bundang-outlet",
@@ -137,5 +146,6 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     tagClass: "bg-rose-100 text-rose-700",
     borderClass: "border-rose-100",
+    placeholderGradient: "linear-gradient(135deg, #881337 0%, #f43f5e 100%)",
   },
 ];
