@@ -94,3 +94,6 @@ src/
   - ContactSection: input focus ring 추가, 카카오 링크 target="_blank"
 - 포트폴리오 업데이트 가이드 작성 (`public/portfolio/GUIDE.md`)
 - 문의 메일 수신 주소 `assap.ceo@gmail.com` 으로 설정
+- 포트폴리오 실제 운영 사례 8건으로 교체 (기존 샘플 데이터 삭제)
+  - 원주 대학교 야시장, 대구 대학교 플리마켓, 서울 대형 축제 부스, 서울 아파트 야시장, 하남 아파트 야시장, 서울 대학교 플리마켓, 충청 대형 축제 부스, 서울 민속 축제 부스
+  - 이미지는 `public/portfolio/[id].jpg` 로 추후 추가 예정
