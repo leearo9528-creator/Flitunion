@@ -36,21 +36,18 @@ export default function HeroSection() {
 
           <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl" style={{ color: "#cbd5e1" }}>
             유휴공간을 수익 창출의 거점으로.
-            <br />
-            소형 공간부터 대형 축제까지 —&nbsp;플릿에서 검증된 셀러 네트워크로
-            <br />
-            <strong className="text-white text-xl">원스톱</strong>
-            <span style={{ color: "#cbd5e1" }}>으로 책임집니다.</span>
+            <br className="hidden sm:block" />
+            소형 공간부터 대형 축제까지 — 플릿에서 검증된 셀러 네트워크로
+            <br className="hidden sm:block" />
+            <strong className="text-white">원스톱</strong>으로 책임집니다.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-bold text-lg rounded-xl transition-all hover:-translate-y-0.5"
-              style={{ background: "#3182f6", boxShadow: "0 8px 30px rgba(49,130,246,0.4)" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#1b64da")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#3182f6")}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-bold text-lg rounded-xl btn-primary"
+              style={{ boxShadow: "0 8px 30px rgba(49,130,246,0.4)" }}
             >
               무료 상담 신청하기
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

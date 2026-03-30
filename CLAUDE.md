@@ -83,3 +83,14 @@ src/
 - 카카오 오픈채팅 상담 링크 연결 (`https://open.kakao.com/o/sZ5YZ4ni`)
 - 로고 SVG 파일 추가 (`public/logo.svg`, `public/logo-white.svg`)
 - 프로젝트 구조 및 TODO 현행화
+- 전체 UI 점검 및 개선:
+  - `FadeInSection` 컴포넌트 추가 — 모든 섹션에 스크롤 진입 시 페이드인 애니메이션 적용
+  - 헤더: 스크롤 시 그림자 전환 효과, 모바일 메뉴 슬라이드 애니메이션
+  - 포트폴리오/FAQ 아코디언: CSS grid 기반 부드러운 전환 (max-h → grid-template-rows)
+  - ProblemSolution: 중복 스텝 번호 제거 (숫자 배지만 유지)
+  - 인라인 onMouseEnter/onMouseLeave → CSS `.btn-primary` 클래스로 통합
+  - HeroSection: 텍스트 크기 불일치 수정, 반응형 줄바꿈 개선
+  - ServiceDetail: 모바일 stats flex-wrap, 헤더 로고 크기 통일
+  - ContactSection: input focus ring 추가, 카카오 링크 target="_blank"
+- 포트폴리오 업데이트 가이드 작성 (`public/portfolio/GUIDE.md`)
+- 문의 메일 수신 주소 `assap.ceo@gmail.com` 으로 설정

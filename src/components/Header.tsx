@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "#services", label: "서비스" },
@@ -11,9 +11,20 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100" style={{ boxShadow: "0 1px 0 0 #f1f5f9" }}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b transition-shadow duration-300 ${
+        scrolled ? "border-gray-200 shadow-sm" : "border-gray-100"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
@@ -42,10 +53,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg transition-colors"
-            style={{ background: "#3182f6" }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#1b64da")}
-            onMouseLeave={e => (e.currentTarget.style.background = "#3182f6")}
+            className="hidden md:inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg btn-primary"
           >
             무료 상담 신청
           </a>
@@ -54,7 +62,7 @@ export default function Header() {
           <button
             className="md:hidden p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="모바일 메뉴 열기"
+            aria-label={menuOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"}
             aria-expanded={menuOpen}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -68,7 +76,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <nav className="md:hidden py-3 border-t border-gray-100" aria-label="모바일 메뉴">
+          <nav className="md:hidden py-3 border-t border-gray-100 animate-slide-down" aria-label="모바일 메뉴">
             <ul className="flex flex-col gap-0.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -84,8 +92,7 @@ export default function Header() {
               <li className="pt-2 pb-1">
                 <a
                   href="#contact"
-                  className="block px-4 py-2.5 text-white text-sm font-bold rounded-lg text-center transition-colors"
-                  style={{ background: "#3182f6" }}
+                  className="block px-4 py-2.5 text-white text-sm font-bold rounded-lg text-center btn-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   무료 상담 신청

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FadeInSection from "./FadeInSection";
 
 type FormState = {
   name: string;
@@ -89,7 +90,7 @@ export default function ContactSection() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400 transition bg-white";
+  const inputClass = "w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition bg-white";
 
   return (
     <section
@@ -102,7 +103,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
           {/* Left */}
-          <div>
+          <FadeInSection>
             <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#93c5fd" }}>
               Contact
             </span>
@@ -129,7 +130,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-xs font-medium mb-0.5" style={{ color: "#64748b" }}>{item.label}</p>
-                    <a href={item.href} className="font-semibold text-white hover:text-blue-300 transition-colors text-sm">
+                    <a href={item.href} className="font-semibold text-white hover:text-blue-300 transition-colors text-sm" target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}>
                       {item.value}
                     </a>
                     <p className="text-xs mt-0.5" style={{ color: "#64748b" }}>{item.sub}</p>
@@ -153,128 +154,127 @@ export default function ContactSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </FadeInSection>
 
           {/* Right: Form */}
-          <div className="bg-white rounded-2xl p-8" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.2)" }}>
-            {submitted ? (
-              <div className="text-center py-12">
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "#eff6ff" }}
-                  aria-hidden="true"
-                >
-                  <svg className="w-8 h-8" style={{ color: "#3182f6" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+          <FadeInSection delay={200}>
+            <div className="bg-white rounded-2xl p-8" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.2)" }}>
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style={{ background: "#eff6ff" }}
+                    aria-hidden="true"
+                  >
+                    <svg className="w-8 h-8" style={{ color: "#3182f6" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">문의가 접수되었습니다!</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">48시간 이내에 맞춤 기획안과 함께 연락드리겠습니다.</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">문의가 접수되었습니다!</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">48시간 이내에 맞춤 기획안과 함께 연락드리겠습니다.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate aria-label="무료 상담 신청 폼">
-                <h3 className="text-lg font-bold text-gray-900 mb-6">무료 상담 신청</h3>
+              ) : (
+                <form onSubmit={handleSubmit} noValidate aria-label="무료 상담 신청 폼">
+                  <h3 className="text-lg font-bold text-gray-900 mb-6">무료 상담 신청</h3>
 
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      이름 / 담당자명 <span className="text-red-500" aria-hidden="true">*</span>
-                    </label>
-                    <input
-                      id="name" name="name" type="text" required autoComplete="name"
-                      value={form.name} onChange={handleChange} placeholder="홍길동"
-                      className={inputClass}
-                    />
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        이름 / 담당자명 <span className="text-red-500" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        id="name" name="name" type="text" required autoComplete="name"
+                        value={form.name} onChange={handleChange} placeholder="홍길동"
+                        className={inputClass}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        연락처 <span className="text-red-500" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        id="phone" name="phone" type="tel" required autoComplete="tel"
+                        value={form.phone} onChange={handleChange} placeholder="010-0000-0000"
+                        className={inputClass}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="spaceType" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        행사 유형 <span className="text-red-500" aria-hidden="true">*</span>
+                      </label>
+                      <select
+                        id="spaceType" name="spaceType" required
+                        value={form.spaceType} onChange={handleChange}
+                        className={inputClass}
+                      >
+                        <option value="" disabled>행사 유형을 선택하세요</option>
+                        {spaceTypes.map((t) => (
+                          <option key={t.value} value={t.value}>{t.label}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        공간 위치 <span className="text-red-500" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        id="location" name="location" type="text" required
+                        value={form.location} onChange={handleChange}
+                        placeholder="서울 강남구 역삼동 (지역 및 건물명)"
+                        className={inputClass}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        행사 예정일
+                      </label>
+                      <input
+                        id="eventDate" name="eventDate" type="date"
+                        value={form.eventDate} onChange={handleChange}
+                        className={inputClass}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        추가 문의사항
+                      </label>
+                      <textarea
+                        id="message" name="message" rows={3}
+                        value={form.message} onChange={handleChange}
+                        placeholder="공간 규모, 원하시는 행사 콘셉트, 예산, 푸드트럭 필요 여부 등을 자유롭게 적어주세요."
+                        className={`${inputClass} resize-none`}
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      연락처 <span className="text-red-500" aria-hidden="true">*</span>
-                    </label>
-                    <input
-                      id="phone" name="phone" type="tel" required autoComplete="tel"
-                      value={form.phone} onChange={handleChange} placeholder="010-0000-0000"
-                      className={inputClass}
-                    />
-                  </div>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="mt-6 w-full py-3.5 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-sm btn-primary"
+                  >
+                    {loading ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        접수 중...
+                      </>
+                    ) : "무료 상담 신청하기"}
+                  </button>
 
-                  <div>
-                    <label htmlFor="spaceType" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      행사 유형 <span className="text-red-500" aria-hidden="true">*</span>
-                    </label>
-                    <select
-                      id="spaceType" name="spaceType" required
-                      value={form.spaceType} onChange={handleChange}
-                      className={inputClass}
-                    >
-                      <option value="" disabled>행사 유형을 선택하세요</option>
-                      {spaceTypes.map((t) => (
-                        <option key={t.value} value={t.value}>{t.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      공간 위치 <span className="text-red-500" aria-hidden="true">*</span>
-                    </label>
-                    <input
-                      id="location" name="location" type="text" required
-                      value={form.location} onChange={handleChange}
-                      placeholder="서울 강남구 역삼동 (지역 및 건물명)"
-                      className={inputClass}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      행사 예정일
-                    </label>
-                    <input
-                      id="eventDate" name="eventDate" type="date"
-                      value={form.eventDate} onChange={handleChange}
-                      className={inputClass}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      추가 문의사항
-                    </label>
-                    <textarea
-                      id="message" name="message" rows={3}
-                      value={form.message} onChange={handleChange}
-                      placeholder="공간 규모, 원하시는 행사 콘셉트, 예산, 푸드트럭 필요 여부 등을 자유롭게 적어주세요."
-                      className={`${inputClass} resize-none`}
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="mt-6 w-full py-3.5 disabled:opacity-60 text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
-                  style={{ background: "#3182f6" }}
-                  onMouseEnter={e => { if (!loading) e.currentTarget.style.background = "#1b64da"; }}
-                  onMouseLeave={e => { if (!loading) e.currentTarget.style.background = "#3182f6"; }}
-                >
-                  {loading ? (
-                    <>
-                      <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      접수 중...
-                    </>
-                  ) : "무료 상담 신청하기"}
-                </button>
-
-                <p className="mt-3 text-xs text-gray-400 text-center">
-                  개인정보는 상담 목적 외에 사용되지 않으며, 상담 완료 후 즉시 파기됩니다.
-                </p>
-              </form>
-            )}
-          </div>
+                  <p className="mt-3 text-xs text-gray-400 text-center">
+                    개인정보는 상담 목적 외에 사용되지 않으며, 상담 완료 후 즉시 파기됩니다.
+                  </p>
+                </form>
+              )}
+            </div>
+          </FadeInSection>
 
         </div>
       </div>

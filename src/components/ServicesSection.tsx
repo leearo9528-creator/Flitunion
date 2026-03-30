@@ -1,5 +1,7 @@
 "use client";
 
+import FadeInSection from "./FadeInSection";
+
 const services = [
   {
     slug: "flea-market",
@@ -61,7 +63,7 @@ export default function ServicesSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-14">
+        <FadeInSection className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#3182f6" }}>
             Services
           </span>
@@ -73,92 +75,90 @@ export default function ServicesSection() {
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
             셀러 모집, 푸드트럭 섭외, 장비 렌탈까지. 플릿 유니온 하나로 끝납니다.
           </p>
-        </div>
+        </FadeInSection>
 
         {/* Service Cards */}
         <div className="grid md:grid-cols-2 gap-5">
           {services.map((service, index) => (
-            <article
-              key={index}
-              className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all hover:-translate-y-1"
-              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
-            >
-              {/* Icon */}
-              <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-xl mb-5 transition-colors"
-                style={{ background: "#eff6ff", color: "#3182f6" }}
+            <FadeInSection key={index} delay={index * 100}>
+              <article
+                className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all hover:-translate-y-1 h-full"
+                style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
               >
-                {service.icon}
-              </div>
+                {/* Icon */}
+                <div
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-xl mb-5 transition-colors"
+                  style={{ background: "#eff6ff", color: "#3182f6" }}
+                >
+                  {service.icon}
+                </div>
 
-              {/* Title */}
-              <p className="text-xs font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#3182f6" }}>
-                {service.subtitle}
-              </p>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">{service.title}</h3>
+                {/* Title */}
+                <p className="text-xs font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#3182f6" }}>
+                  {service.subtitle}
+                </p>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{service.title}</h3>
 
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.desc}</p>
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.desc}</p>
 
-              {/* Tags */}
-              <ul className="flex flex-wrap gap-1.5 mb-5" aria-label="서비스 특징">
-                {service.tags.map((tag) => (
-                  <li key={tag} className="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-full">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
+                {/* Tags */}
+                <ul className="flex flex-wrap gap-1.5 mb-5" aria-label="서비스 특징">
+                  {service.tags.map((tag) => (
+                    <li key={tag} className="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-full">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
 
-              {/* Highlight */}
-              <div className="flex items-center gap-2 text-sm font-semibold rounded-xl px-4 py-2.5 mb-4"
-                style={{ background: "#eff6ff", color: "#3182f6", border: "1px solid #bfdbfe" }}
-              >
-                <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                {service.highlight}
-              </div>
+                {/* Highlight */}
+                <div className="flex items-center gap-2 text-sm font-semibold rounded-xl px-4 py-2.5 mb-4"
+                  style={{ background: "#eff6ff", color: "#3182f6", border: "1px solid #bfdbfe" }}
+                >
+                  <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  {service.highlight}
+                </div>
 
-              {/* Detail link */}
-              <a
-                href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
-                style={{ color: "#3182f6" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#1b64da")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#3182f6")}
-              >
-                자세히 보기
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </article>
+                {/* Detail link */}
+                <a
+                  href={`/services/${service.slug}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
+                  style={{ color: "#3182f6" }}
+                >
+                  자세히 보기
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </article>
+            </FadeInSection>
           ))}
         </div>
 
         {/* All-in-one Banner */}
-        <div className="mt-8 rounded-2xl p-7" style={{ background: "#191f28" }}>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-            <div>
-              <h3 className="text-lg font-black text-white mb-1">행사 준비의 모든 것, 한 곳에서</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                셀러 모집 · 푸드트럭 섭외 · 장비 렌탈 · 현장 운영 · 결과 정산까지 플릿 유니온 단독으로 진행 가능합니다.
-              </p>
+        <FadeInSection className="mt-8">
+          <div className="rounded-2xl p-7" style={{ background: "#191f28" }}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+              <div>
+                <h3 className="text-lg font-black text-white mb-1">행사 준비의 모든 것, 한 곳에서</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  셀러 모집 · 푸드트럭 섭외 · 장비 렌탈 · 현장 운영 · 결과 정산까지 플릿 유니온 단독으로 진행 가능합니다.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-white font-bold rounded-xl text-sm btn-primary"
+              >
+                통합 견적 문의
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
-            <a
-              href="#contact"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-white font-bold rounded-xl transition-colors text-sm"
-              style={{ background: "#3182f6" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#1b64da")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#3182f6")}
-            >
-              통합 견적 문의
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
-        </div>
+        </FadeInSection>
 
       </div>
     </section>

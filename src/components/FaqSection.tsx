@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FadeInSection from "./FadeInSection";
 
 const faqs = [
   {
@@ -51,22 +52,22 @@ function FaqItem({
       }}
     >
       <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left transition-colors"
+        className={`w-full flex items-center justify-between px-6 py-5 text-left transition-colors ${
+          isOpen ? "" : "hover:bg-gray-50"
+        }`}
         style={{ background: isOpen ? "#eff6ff" : "#ffffff" }}
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${index}`}
         id={`faq-question-${index}`}
-        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.background = "#f9fafb"; }}
-        onMouseLeave={e => { if (!isOpen) e.currentTarget.style.background = "#ffffff"; }}
       >
         <span className="font-semibold text-gray-900 text-sm leading-snug pr-4">{question}</span>
         <span
-          className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full border-2 transition-all"
-          style={isOpen
-            ? { background: "#3182f6", borderColor: "#3182f6", color: "#fff", transform: "rotate(180deg)" }
-            : { background: "transparent", borderColor: "#d1d5db", color: "#9ca3af" }
-          }
+          className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full border-2 transition-all duration-300 ${
+            isOpen
+              ? "bg-[#3182f6] border-[#3182f6] text-white rotate-180"
+              : "border-gray-300 text-gray-400"
+          }`}
           aria-hidden="true"
         >
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,9 +79,12 @@ function FaqItem({
         id={`faq-answer-${index}`}
         role="region"
         aria-labelledby={`faq-question-${index}`}
-        className={`transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0 overflow-hidden"}`}
+        className="accordion-content"
+        data-open={isOpen}
       >
-        <p className="px-6 pb-5 text-gray-700 text-sm leading-relaxed">{answer}</p>
+        <div className="accordion-inner">
+          <p className="px-6 pb-5 text-gray-700 text-sm leading-relaxed">{answer}</p>
+        </div>
       </div>
     </div>
   );
@@ -94,7 +98,7 @@ export default function FaqSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-14">
+        <FadeInSection className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3" style={{ color: "#3182f6" }}>
             FAQ
           </span>
@@ -104,36 +108,36 @@ export default function FaqSection() {
           <p className="text-gray-600 text-lg leading-relaxed">
             플리마켓·야시장·푸드트럭 운영 의뢰 전, 궁금한 점을 미리 확인하세요.
           </p>
-        </div>
+        </FadeInSection>
 
-        <div className="space-y-2.5">
-          {faqs.map((faq, index) => (
-            <FaqItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openIndex === index}
-              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-              index={index}
-            />
-          ))}
-        </div>
+        <FadeInSection>
+          <div className="space-y-2.5">
+            {faqs.map((faq, index) => (
+              <FaqItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                index={index}
+              />
+            ))}
+          </div>
 
-        <div className="mt-8 rounded-2xl p-6 text-center" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
-          <p className="text-gray-800 font-semibold mb-3 text-sm">더 궁금한 점이 있으신가요?</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 font-bold text-sm transition-colors"
-            style={{ color: "#3182f6" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "#1b64da")}
-            onMouseLeave={e => (e.currentTarget.style.color = "#3182f6")}
-          >
-            직접 상담 문의하기
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
+          <div className="mt-8 rounded-2xl p-6 text-center" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
+            <p className="text-gray-800 font-semibold mb-3 text-sm">더 궁금한 점이 있으신가요?</p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 font-bold text-sm transition-colors hover:opacity-80"
+              style={{ color: "#3182f6" }}
+            >
+              직접 상담 문의하기
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </FadeInSection>
 
       </div>
     </section>
