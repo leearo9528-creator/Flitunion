@@ -35,9 +35,9 @@ const contactInfo = [
       </svg>
     ),
     label: "이메일",
-    value: "hello@flitunion.co.kr",
+    value: "hello@flitunion.com",
     sub: "24시간 접수, 영업일 기준 응답",
-    href: "mailto:hello@flitunion.co.kr",
+    href: "mailto:hello@flitunion.com",
   },
   {
     icon: (

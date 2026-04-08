@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: `${service.title} | 플릿 유니온(Flit Union)`,
     description: service.heroDesc,
-    alternates: { canonical: `https://flitunion.co.kr/services/${service.slug}` },
+    alternates: { canonical: `https://flitunion.com/services/${service.slug}` },
   };
 }
 

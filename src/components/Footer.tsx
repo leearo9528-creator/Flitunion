@@ -58,7 +58,7 @@ export default function Footer() {
                 <a href="tel:+821080188492" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>010-8018-8492</a>
               </li>
               <li>
-                <a href="mailto:hello@flitunion.co.kr" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>hello@flitunion.co.kr</a>
+                <a href="mailto:hello@flitunion.com" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>hello@flitunion.com</a>
               </li>
               <li style={{ color: "#4b5563" }}>평일 09:00 – 18:00</li>
             </ul>

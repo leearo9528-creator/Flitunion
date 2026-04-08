@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { Service } from "@/data/services";
 
 export default function ServiceDetailClient({ service }: { service: Service }) {
@@ -11,16 +12,16 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-1" aria-label="플릿 유니온 홈으로 이동">
+          <Link href="/" className="flex items-center gap-1" aria-label="플릿 유니온 홈으로 이동">
             <span className="text-xl font-black text-brand">Flit</span>
             <span className="text-xl font-black text-gray-900">Union</span>
-          </a>
-          <a href="/#services" className="text-sm font-medium text-gray-600 hover:text-brand transition-colors flex items-center gap-1">
+          </Link>
+          <Link href="/#services" className="text-sm font-medium text-gray-600 hover:text-brand transition-colors flex items-center gap-1">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             전체 서비스
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -34,7 +35,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <a
+              <Link
                 href="/#services"
                 className="inline-flex items-center gap-1 text-blue-300 text-sm mb-6 hover:text-white transition-colors"
               >
@@ -42,7 +43,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
                 전체 서비스 보기
-              </a>
+              </Link>
               <span className="block text-brand text-sm font-semibold uppercase tracking-widest mb-3">
                 {service.subtitle}
               </span>
@@ -183,7 +184,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
               48시간 이내에 맞춤 기획안을 무료로 제안드립니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/#contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-colors"
               >
@@ -191,7 +192,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="tel:+821080188492"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-colors"

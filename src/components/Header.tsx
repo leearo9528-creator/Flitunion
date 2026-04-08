@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const navLinks = [
   { href: "#services", label: "서비스" },
@@ -29,10 +30,10 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a href="/" className="flex items-center gap-0.5" aria-label="플릿 유니온 홈으로 이동">
+          <Link href="/" className="flex items-center gap-0.5" aria-label="플릿 유니온 홈으로 이동">
             <span className="text-xl font-black tracking-tight" style={{ color: "#3182f6" }}>Flit</span>
             <span className="text-xl font-black tracking-tight text-gray-900">Union</span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav aria-label="주요 메뉴" className="hidden md:block">

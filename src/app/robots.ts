@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://flitunion.co.kr/sitemap.xml",
+    sitemap: "https://flitunion.com/sitemap.xml",
   };
 }

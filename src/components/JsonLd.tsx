@@ -4,8 +4,8 @@ export default function JsonLd() {
     "@type": "Organization",
     name: "플릿 유니온(Flit Union)",
     alternateName: "Flit Union",
-    url: "https://flitunion.co.kr",
-    logo: "https://flitunion.co.kr/logo.png",
+    url: "https://flitunion.com",
+    logo: "https://flitunion.com/logo.svg",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+82-10-8018-8492",

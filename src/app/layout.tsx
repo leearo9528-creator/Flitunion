@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://flitunion.co.kr",
+    url: "https://flitunion.com",
     siteName: "플릿 유니온(Flit Union)",
     title: "플릿 유니온(Flit Union) | 플리마켓 운영 대행 및 유휴공간 수익화 솔루션",
     description:
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://flitunion.co.kr",
+    canonical: "https://flitunion.com",
   },
 };
 
