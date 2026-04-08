@@ -70,4 +70,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "알림 전송에 실패했습니다." }, { status: 500 });
   }
 }
-}

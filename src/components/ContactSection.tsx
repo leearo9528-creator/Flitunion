@@ -6,6 +6,7 @@ import FadeInSection from "./FadeInSection";
 type FormState = {
   name: string;
   phone: string;
+  email: string;
   location: string;
   eventDate: string;
   spaceType: string;
@@ -13,7 +14,7 @@ type FormState = {
 };
 
 const initialForm: FormState = {
-  name: "", phone: "", location: "", eventDate: "", spaceType: "", message: "",
+  name: "", phone: "", email: "", location: "", eventDate: "", spaceType: "", message: "",
 };
 
 const contactInfo = [
@@ -198,6 +199,18 @@ export default function ContactSection() {
                         value={form.phone} onChange={handleChange} placeholder="010-0000-0000"
                         className={inputClass}
                       />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        이메일 <span className="text-red-500" aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        id="email" name="email" type="email" required autoComplete="email"
+                        value={form.email} onChange={handleChange} placeholder="contact@example.com"
+                        className={inputClass}
+                      />
+                      <p className="mt-1 text-xs text-gray-400">맞춤 기획안을 이 이메일로 보내드립니다.</p>
                     </div>
 
                     <div>

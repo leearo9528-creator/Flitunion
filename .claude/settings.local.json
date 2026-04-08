@@ -7,7 +7,12 @@
       "Bash(npm run:*)",
       "Bash(curl:*)",
       "Bash(xargs sed:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)"
     ]
   }
 }
