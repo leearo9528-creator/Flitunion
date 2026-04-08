@@ -8,7 +8,7 @@
 
 플릿 유니온의 B2B 마케팅 웹사이트. 대학교, 카페, 건물주, 행사 기획자 등을 대상으로 플리마켓·야시장·푸드트럭·행사 장비 임대 서비스를 소개하고 문의를 유도하는 것이 목표.
 
-- **도메인:** https://flitunion.co.kr
+- **도메인:** https://flitunion.com
 - **언어:** 한국어 (ko_KR)
 - **스택:** Next.js 16.2.1 · React 19 · TypeScript · Tailwind CSS 4
 
@@ -97,3 +97,16 @@ src/
 - 포트폴리오 실제 운영 사례 8건으로 교체 (기존 샘플 데이터 삭제)
   - 원주 대학교 야시장, 대구 대학교 플리마켓, 서울 대형 축제 부스, 서울 아파트 야시장, 하남 아파트 야시장, 서울 대학교 플리마켓, 충청 대형 축제 부스, 서울 민속 축제 부스
   - 이미지는 `public/portfolio/[id].jpg` 로 추후 추가 예정
+
+### 2026-04-09
+- 전체 사이트 점검 및 오류 수정
+  - ESLint 오류 5건 수정: `Header.tsx`, `ServiceDetailClient.tsx` 의 내부 라우트(`/`, `/#contact`, `/#services`) `<a>` → `next/link` `<Link>` 로 교체
+  - SEO 수정: `JsonLd.tsx` Organization 스키마의 `logo` URL 이 존재하지 않는 `/logo.png` → `/logo.svg` 로 교정
+- 도메인 일괄 변경: `flitunion.co.kr` → `flitunion.com`
+  - `layout.tsx`(openGraph url, canonical), `sitemap.ts`(BASE_URL), `robots.ts`(sitemap URL), `services/[slug]/page.tsx`(canonical), `JsonLd.tsx`(Organization url/logo), `Footer.tsx`/`ContactSection.tsx`(노출 이메일 `hello@flitunion.com`)
+- 문의 폼 알림 채널 변경: 이메일(Nodemailer/Gmail SMTP) → **Discord Webhook**
+  - `src/app/api/contact/route.ts` 를 Discord Embed 페이로드 발송 로직으로 재작성 (필드: 이름·연락처·행사유형·공간 위치·예정일·추가 문의, color `#3182f6`, 1000자 truncate)
+  - 환경변수: `EMAIL_*` 5종 제거 → `DISCORD_WEBHOOK_URL` 1종으로 단순화
+  - `nodemailer`, `@types/nodemailer` 패키지 제거
+  - `.env.local.example` 갱신 (Discord 웹후크 발급 가이드 포함)
+- TypeScript / ESLint / `next build` 모두 통과 확인
