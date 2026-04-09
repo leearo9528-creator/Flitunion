@@ -110,3 +110,11 @@ src/
   - `nodemailer`, `@types/nodemailer` 패키지 제거
   - `.env.local.example` 갱신 (Discord 웹후크 발급 가이드 포함)
 - TypeScript / ESLint / `next build` 모두 통과 확인
+- 플랫폼 서비스(`flit-black`) 도메인 전략 결정: `flitunion.com` (B2B 마케팅) 유지 + `app.flitunion.com` 서브도메인에 플랫폼 배포
+  - SEO 자산 보존, SaaS 표준(apex=마케팅, app.=서비스)에 부합
+- 셀러 모집 깔때기 추가 — 플랫폼(`https://app.flitunion.com`)으로 유도하는 CTA 3곳 배치
+  - `Footer.tsx`: 기존 "플릿 플랫폼 바로가기" 링크 URL 을 `flit-black.vercel.app` → `app.flitunion.com` 으로 교체
+  - `Header.tsx`: 데스크탑 메인 CTA 옆 + 모바일 메뉴 하단에 "셀러 지원 →" 텍스트 링크 추가 (회색 톤, 메인 B2B CTA 와 시각적 구분)
+  - `SellerCtaSection.tsx` **신규**: Portfolio ↔ FAQ 사이 thin promo strip. 파란 그라데이션 배경 + F 배지 + "플릿에서 참여하기" 버튼. `page.tsx` 에 삽입
+  - ContactSection 폼은 B2B 전용으로 보호 (셀러 깔때기와 분리)
+- 사전 작업 중 발견한 `src/app/api/contact/route.ts` 의 잘못된 닫는 중괄호 1줄 제거 (빌드 차단 오류)

@@ -51,13 +51,23 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg btn-primary"
-          >
-            무료 상담 신청
-          </a>
+          {/* Desktop CTA group */}
+          <div className="hidden md:flex items-center gap-5">
+            <a
+              href="https://app.flitunion.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
+            >
+              셀러 지원 →
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg btn-primary"
+            >
+              무료 상담 신청
+            </a>
+          </div>
 
           {/* Mobile Toggle */}
           <button
@@ -97,6 +107,17 @@ export default function Header() {
                   onClick={() => setMenuOpen(false)}
                 >
                   무료 상담 신청
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://app.flitunion.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 text-sm font-medium text-gray-500 hover:text-blue-600 text-center transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  셀러 지원 →
                 </a>
               </li>
             </ul>

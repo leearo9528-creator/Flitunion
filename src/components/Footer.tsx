@@ -22,7 +22,7 @@ export default function Footer() {
               셀러 모집·푸드트럭 섭외·장비 렌탈·현장 운영까지 원스톱 제공.
             </p>
             <a
-              href="https://flit-black.vercel.app/"
+              href="https://app.flitunion.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:text-blue-400"
