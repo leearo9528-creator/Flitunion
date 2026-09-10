@@ -128,23 +128,25 @@ async function overview() {
   // left: white card with key-value
   const cx = ML, cy = 2.55, cw = 5.6, ch = 4.2;
   rect(s, cx, cy, cw, ch, WHITE);
-  T(s, "기업 정보", { x: cx + 0.4, y: cy + 0.35, w: 3, h: 0.35, fontSize: 15, bold: true, color: INK });
+  T(s, "기업 정보", { x: cx + 0.4, y: cy + 0.28, w: 3, h: 0.35, fontSize: 15, bold: true, color: INK });
   const rows = [
     ["회사명", "플릿 유니온 (Flit Union)"],
     ["대표자", "이아로"],
     ["설립일", "2024년 8월"],
-    ["사업 영역", "플리마켓·야시장 운영 대행, 푸드트럭 섭외,\n행사 물품 렌탈"],
+    ["사업자등록번호", "655-26-02147"],
+    ["소재지", "서울특별시 도봉구"],
+    ["사업 영역", "마켓 운영 대행 · 푸드트럭 섭외 · 장비 렌탈"],
     ["운영 플랫폼", "플릿(Flit) 셀러 플랫폼 · app.flitunion.com"],
     ["서비스 지역", "전국 (수도권 직영, 지방 현지 파트너 운영)"],
     ["홈페이지", "www.flitunion.com"],
     ["이메일", "hello@flitunion.com"],
   ];
-  let ry = cy + 0.85;
+  let ry = cy + 0.72;
   rows.forEach((r) => {
-    const h = r[1].includes("\n") ? 0.55 : 0.34;
-    T(s, r[0], { x: cx + 0.4, y: ry, w: 1.4, h, fontSize: 11, bold: true, color: BRAND });
-    T(s, r[1], { x: cx + 1.8, y: ry, w: cw - 2.1, h, fontSize: 11, color: INK, lineSpacingMultiple: 1.2 });
-    ry += h + 0.06;
+    const h = 0.31;
+    T(s, r[0], { x: cx + 0.4, y: ry, w: 1.4, h, fontSize: 10.5, bold: true, color: BRAND });
+    T(s, r[1], { x: cx + 1.8, y: ry, w: cw - 2.1, h, fontSize: 10.5, color: INK });
+    ry += h + 0.04;
   });
   // right: stat tiles
   const stats = [
