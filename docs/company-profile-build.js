@@ -327,30 +327,54 @@ async function processSlide() {
   return s;
 }
 
-// ───────── 13. 주요 실적 ─────────
+// ───────── 사진 로더 ─────────
+const fs = require("fs"), path = require("path");
+const PHOTO_DIR = process.env.PHOTO_DIR || path.join(__dirname, "photos");
+function photoFor(id) {
+  for (const ext of ["jpg", "jpeg", "png", "webp"]) {
+    const f = path.join(PHOTO_DIR, `${id}.${ext}`);
+    if (fs.existsSync(f)) return f;
+  }
+  return null;
+}
+async function photoBox(slide, id, x, y, w, h, { radius = 0.1, dy = 0 } = {}) {
+  const f = photoFor(id);
+  if (f) {
+    slide.addImage({ path: f, x, y, w, h, sizing: { type: "cover", w, h }, rounding: false });
+    return true;
+  }
+  rect(slide, x, y, w, h, NAVY2, { rectRadius: radius, line: { color: BRAND_DK, width: 1, dashType: "dash" } });
+  const d = Math.min(0.5, h * 0.3);
+  slide.addImage({ data: await icon("FaCamera", SKY), x: x + w / 2 - d / 2, y: y + h / 2 - d / 2 - 0.12 + dy, w: d, h: d });
+  T(slide, "현장 사진", { x, y: y + h / 2 + d / 2 - 0.08 + dy, w, h: 0.25, fontSize: 8.5, color: SKY, align: "center" });
+  return false;
+}
+
+// ───────── 13. 주요 실적 (사진 포트폴리오) ─────────
 const TAGC = { "야시장": "4F46E5", "캠퍼스 마켓": "3182F6", "대형 축제": "E11D48", "민속 축제": "EA580C" };
-function portfolio() {
+const PORTFOLIO = [
+  ["wonju-univ-night", "야시장", "강원 원주시", "원주 소재 대학교 야시장 운영"],
+  ["daegu-univ-flea", "캠퍼스 마켓", "대구광역시", "대구 소재 대학교 플리마켓 운영"],
+  ["seoul-festival-booth", "대형 축제", "서울특별시", "서울 소재 대형 축제 부스 운영"],
+  ["seoul-apt-night", "야시장", "서울특별시", "서울 소재 아파트 야시장 운영"],
+  ["hanam-apt-night", "야시장", "경기 하남시", "하남 소재 아파트 야시장 운영"],
+  ["seoul-univ-flea", "캠퍼스 마켓", "서울특별시", "서울 소재 대학교 플리마켓 운영"],
+  ["chungcheong-festival", "대형 축제", "충청도", "충청 소재 대형 축제 부스 운영"],
+  ["seoul-folk-festival", "민속 축제", "서울특별시", "서울 소재 민속 축제 부스 운영"],
+];
+async function portfolio() {
   const s = base("08  PORTFOLIO", "주요 실적", "대학교, 아파트 단지, 대형 축제 등 다양한 공간에서 행사를 운영하였습니다.");
-  const items = [
-    ["야시장", "강원 원주시", "원주 소재 대학교 야시장 운영", "축제 기간 저녁 시간대 푸드트럭과 플리마켓 셀러를 결합한 복합 야간 마켓을 운영하였습니다."],
-    ["캠퍼스 마켓", "대구광역시", "대구 소재 대학교 플리마켓 운영", "학생 창업 셀러와 외부 플릿 인증 셀러를 조합하여 전 과정을 대행하였습니다."],
-    ["대형 축제", "서울특별시", "서울 소재 대형 축제 부스 운영", "대규모 인파 동선에 맞춘 부스 배치와 안전 관리 체계를 수립하여 운영하였습니다."],
-    ["야시장", "서울특별시", "서울 소재 아파트 야시장 운영", "단지 내 유휴 공간을 활용한 주민 참여형 야시장을 관리사무소와 협업하여 운영하였습니다."],
-    ["야시장", "경기 하남시", "하남 소재 아파트 야시장 운영", "가족 단위 방문객을 고려한 키즈 체험·먹거리 콘텐츠로 높은 참여율을 기록하였습니다."],
-    ["캠퍼스 마켓", "서울특별시", "서울 소재 대학교 플리마켓 운영", "학생 창업팀 우선 선발과 플릿 셀러 조합으로 품질 높은 캠퍼스 마켓을 구현하였습니다."],
-    ["대형 축제", "충청도", "충청 소재 대형 축제 부스 운영", "지역 특산물·공예 셀러와 플릿 셀러를 조합하고 장비 렌탈을 일괄 제공하였습니다."],
-    ["민속 축제", "서울특별시", "서울 소재 민속 축제 부스 운영", "전통 공예·먹거리·체험 셀러 중심으로 축제 정체성에 부합하는 부스 존을 연출하였습니다."],
-  ];
-  const cols = 4, gap = 0.25, cw = (CW - gap * (cols - 1)) / cols, ch = 1.95, cy = 2.6;
-  items.forEach((it, i) => {
-    const x = ML + (i % cols) * (cw + gap), y = cy + Math.floor(i / cols) * (ch + 0.25);
+  const cols = 4, gap = 0.22, cw = (CW - gap * (cols - 1)) / cols, ph = cw * 0.48, ch = ph + 0.68, cy = 2.5;
+  for (let i = 0; i < PORTFOLIO.length; i++) {
+    const [id, tag, loc, title] = PORTFOLIO[i];
+    const x = ML + (i % cols) * (cw + gap), y = cy + Math.floor(i / cols) * (ch + 0.2);
     rect(s, x, y, cw, ch, WHITE);
-    rect(s, x + 0.25, y + 0.25, 1.15, 0.28, TAGC[it[0]], { rectRadius: 0.14 });
-    T(s, it[0], { x: x + 0.25, y: y + 0.25, w: 1.15, h: 0.28, fontSize: 8.5, bold: true, color: WHITE, align: "center", valign: "middle" });
-    T(s, it[1], { x: x + 1.5, y: y + 0.25, w: cw - 1.7, h: 0.28, fontSize: 9, color: MUTED, valign: "middle", align: "right" });
-    T(s, it[2], { x: x + 0.25, y: y + 0.65, w: cw - 0.5, h: 0.35, fontSize: 11.5, bold: true, color: INK });
-    T(s, it[3], { x: x + 0.25, y: y + 1.02, w: cw - 0.5, h: 0.85, fontSize: 9.5, color: GRAY, lineSpacingMultiple: 1.2 });
-  });
+    await photoBox(s, id, x, y, cw, ph);
+    rect(s, x + 0.15, y + 0.15, 1.0, 0.26, TAGC[tag], { rectRadius: 0.13 });
+    T(s, tag, { x: x + 0.15, y: y + 0.15, w: 1.0, h: 0.26, fontSize: 8, bold: true, color: WHITE, align: "center", valign: "middle" });
+    T(s, title, { x: x + 0.2, y: y + ph + 0.12, w: cw - 0.4, h: 0.3, fontSize: 10.5, bold: true, color: INK });
+    T(s, loc, { x: x + 0.2, y: y + ph + 0.4, w: cw - 0.4, h: 0.25, fontSize: 9, color: MUTED });
+  }
   return s;
 }
 
@@ -359,7 +383,7 @@ async function caseStudy() {
   const s = base("08  CASE STUDY", "사례 연구", "기획 배경부터 성과까지, 대표 운영 사례 두 건을 소개합니다.");
   const cases = [
     {
-      tag: "야시장", title: "원주 소재 대학교 야시장", loc: "강원 원주시 · 대학 축제 기간",
+      id: "wonju-univ-night", tag: "야시장", title: "원주 소재 대학교 야시장", loc: "강원 원주시 · 대학 축제 기간",
       cols: [
         ["기획 배경", "대학 축제 기간 저녁 시간대에 콘텐츠가 부재한 문제를 해결하고, 학생과 지역 주민이 함께 즐길 수 있는 야시장을 기획하였습니다."],
         ["운영 방식", "저녁부터 야간까지 푸드트럭 존과 플리마켓 셀러 존을 병행 운영하고, 야간 조명 연출로 분위기를 조성하였습니다."],
@@ -367,7 +391,7 @@ async function caseStudy() {
       ],
     },
     {
-      tag: "야시장", title: "하남 소재 아파트 야시장", loc: "경기 하남시 · 대규모 아파트 단지",
+      id: "hanam-apt-night", tag: "야시장", title: "하남 소재 아파트 야시장", loc: "경기 하남시 · 대규모 아파트 단지",
       cols: [
         ["기획 배경", "단지 내 커뮤니티 행사에 대한 입주민 수요가 높아 관리사무소에서 야시장 운영을 의뢰하였습니다."],
         ["운영 방식", "가족 친화 콘텐츠를 중심으로 키즈존·체험존을 별도 구성하고, 주차·소음·안전을 관리사무소와 협업하여 관리하였습니다."],
@@ -378,12 +402,14 @@ async function caseStudy() {
   const rowH = 1.95, y0 = 2.6;
   for (let r = 0; r < cases.length; r++) {
     const c = cases[r], y = y0 + r * (rowH + 0.25);
-    const lw = 3.1;
-    rect(s, ML, y, lw, rowH, BRAND);
-    rect(s, ML + 0.3, y + 0.3, 1.0, 0.28, WHITE, { rectRadius: 0.14 });
-    T(s, c.tag, { x: ML + 0.3, y: y + 0.3, w: 1.0, h: 0.28, fontSize: 8.5, bold: true, color: BRAND, align: "center", valign: "middle" });
-    T(s, c.title, { x: ML + 0.3, y: y + 0.75, w: lw - 0.5, h: 0.7, fontSize: 15, bold: true, color: WHITE, lineSpacingMultiple: 1.15 });
-    T(s, c.loc, { x: ML + 0.3, y: y + rowH - 0.55, w: lw - 0.5, h: 0.3, fontSize: 9.5, color: ICE });
+    const lw = 3.4;
+    await photoBox(s, c.id, ML, y, lw, rowH, { dy: -0.3 });
+    // caption band over photo
+    rect(s, ML, y + rowH - 0.75, lw, 0.75, NAVY, { rectRadius: 0, fill: { color: NAVY, transparency: 25 }, line: { color: NAVY, transparency: 100 } });
+    rect(s, ML + 0.2, y + 0.2, 0.9, 0.26, WHITE, { rectRadius: 0.13 });
+    T(s, c.tag, { x: ML + 0.2, y: y + 0.2, w: 0.9, h: 0.26, fontSize: 8, bold: true, color: BRAND, align: "center", valign: "middle" });
+    T(s, c.title, { x: ML + 0.2, y: y + rowH - 0.68, w: lw - 0.4, h: 0.32, fontSize: 13, bold: true, color: WHITE });
+    T(s, c.loc, { x: ML + 0.2, y: y + rowH - 0.36, w: lw - 0.4, h: 0.25, fontSize: 9, color: ICE });
     const gx = ML + lw + 0.25, gw = CW - lw - 0.25, cw = (gw - 0.4) / 3;
     c.cols.forEach((col, i) => {
       const x = gx + i * (cw + 0.2);
@@ -392,6 +418,21 @@ async function caseStudy() {
       T(s, col[1], { x: x + 0.25, y: y + 0.6, w: cw - 0.5, h: rowH - 0.75, fontSize: 10, color: GRAY, lineSpacingMultiple: 1.25 });
     });
   }
+  return s;
+}
+
+// ───────── 14b. 현장 스케치 (photos/gallery/*.jpg 가 3장 이상일 때만) ─────────
+async function gallery() {
+  const dir = path.join(PHOTO_DIR, "gallery");
+  if (!fs.existsSync(dir)) return null;
+  const files = fs.readdirSync(dir).filter((f) => /\.(jpe?g|png|webp)$/i.test(f)).sort().slice(0, 6);
+  if (files.length < 3) return null;
+  const s = base("08  ON-SITE", "현장 스케치", "플릿 유니온이 운영한 행사 현장의 실제 모습입니다.");
+  const cols = 3, gap = 0.22, cw = (CW - gap * (cols - 1)) / cols, ch = 2.0, cy = 2.55;
+  files.forEach((f, i) => {
+    const x = ML + (i % cols) * (cw + gap), y = cy + Math.floor(i / cols) * (ch + 0.22);
+    s.addImage({ path: path.join(dir, f), x, y, w: cw, h: ch, sizing: { type: "cover", w: cw, h: ch } });
+  });
   return s;
 }
 
@@ -525,8 +566,9 @@ async function contact() {
     ]);
   await why();
   await processSlide();
-  portfolio();
+  await portfolio();
   await caseStudy();
+  await gallery();
   await clients();
   await terms();
   await contact();
