@@ -331,9 +331,18 @@ async function processSlide() {
 const fs = require("fs"), path = require("path");
 const PHOTO_DIR = process.env.PHOTO_DIR || path.join(__dirname, "photos");
 function photoFor(id) {
-  for (const ext of ["jpg", "jpeg", "png", "webp"]) {
-    const f = path.join(PHOTO_DIR, `${id}.${ext}`);
-    if (fs.existsSync(f)) return f;
+  // PHOTO_DIR 및 그 하위 폴더(portfolio/ sellers/ foodtruck/ ...)를 모두 뒤져 `<id>.<확장자>` 를 찾는다
+  const dirs = [PHOTO_DIR];
+  if (fs.existsSync(PHOTO_DIR)) {
+    for (const e of fs.readdirSync(PHOTO_DIR, { withFileTypes: true })) {
+      if (e.isDirectory() && e.name !== "gallery") dirs.push(path.join(PHOTO_DIR, e.name));
+    }
+  }
+  for (const dir of dirs) {
+    for (const ext of ["jpg", "jpeg", "JPG", "JPEG", "png", "PNG", "webp"]) {
+      const f = path.join(dir, `${id}.${ext}`);
+      if (fs.existsSync(f)) return f;
+    }
   }
   return null;
 }

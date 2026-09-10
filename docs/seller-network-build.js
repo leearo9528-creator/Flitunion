@@ -83,9 +83,18 @@ function base(label, title, sub) {
 const fs = require("fs"), path = require("path");
 const PHOTO_DIR = process.env.PHOTO_DIR || path.join(__dirname, "photos");
 function photoFor(id) {
-  for (const ext of ["jpg", "jpeg", "png", "webp"]) {
-    const f = path.join(PHOTO_DIR, `${id}.${ext}`);
-    if (fs.existsSync(f)) return f;
+  // PHOTO_DIR 및 그 하위 폴더(portfolio/ sellers/ foodtruck/ ...)를 모두 뒤져 `<id>.<확장자>` 를 찾는다
+  const dirs = [PHOTO_DIR];
+  if (fs.existsSync(PHOTO_DIR)) {
+    for (const e of fs.readdirSync(PHOTO_DIR, { withFileTypes: true })) {
+      if (e.isDirectory() && e.name !== "gallery") dirs.push(path.join(PHOTO_DIR, e.name));
+    }
+  }
+  for (const dir of dirs) {
+    for (const ext of ["jpg", "jpeg", "JPG", "JPEG", "png", "PNG", "webp"]) {
+      const f = path.join(dir, `${id}.${ext}`);
+      if (fs.existsSync(f)) return f;
+    }
   }
   return null;
 }
@@ -169,7 +178,7 @@ async function channels() {
     const pw = ph * 430 / 900;
     const px = x + (cw - pw) / 2;
     rect(s, px - 0.06, cy - 0.06, pw + 0.12, ph + 0.12, WHITE, { rectRadius: 0.18 });
-    s.addImage({ path: path.join(__dirname, "shots", key + ".png"), x: px, y: cy, w: pw, h: ph, sizing: { type: "cover", w: pw, h: ph } });
+    s.addImage({ path: path.join(__dirname, "seller-network-shots", key + ".png"), x: px, y: cy, w: pw, h: ph, sizing: { type: "cover", w: pw, h: ph } });
     T(s, title, { x, y: cy + ph + 0.2, w: cw, h: 0.28, fontSize: 12, bold: true, color: WHITE, align: "center" });
     T(s, url, { x, y: cy + ph + 0.48, w: cw, h: 0.4, fontSize: 8.5, color: SKY, align: "center", lineSpacingMultiple: 1.1 });
     T(s, desc, { x, y: cy + ph + 0.9, w: cw, h: 0.24, fontSize: 9, color: ICE, align: "center" });
