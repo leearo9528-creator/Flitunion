@@ -37,11 +37,11 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl" style={{ color: "#cbd5e1" }}>
-            대학 축제부터 지자체 축제, 기업 행사까지.
+            셀러 모집부터 장비, 당일 현장 통제, 결과 보고서까지
             <br className="hidden sm:block" />
-            기획 · 셀러 섭외 · 장비 · 현장 운영 · 정산을
+            <strong className="text-white">행사 담당자가 할 일을</strong> 플릿 유니온이 대신합니다.
             <br className="hidden sm:block" />
-            검증된 셀러 네트워크로 <strong className="text-white">창구 하나에서</strong> 책임집니다.
+            담당자는 확인하고 결정만 하시면 됩니다.
           </p>
 
           {/* CTA Buttons */}

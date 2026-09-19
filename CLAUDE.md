@@ -23,13 +23,18 @@ src/
 │   ├── page.tsx                # 홈페이지 (모든 섹션 조합)
 │   ├── about/page.tsx          # 회사 소개 (회사소개서 17장 구조 반영)
 │   ├── portfolio/page.tsx      # 진행 이력 (운영 사례 8건 전문)
+│   ├── packages/               # 행사 유형별 패키지 (목록 + 상세 4종)
+│   ├── sellers/page.tsx        # 셀러 품목 카탈로그 27종
+│   ├── foodtruck/page.tsx      # 푸드트럭 메뉴 카탈로그 24종
 │   ├── robots.ts               # robots.txt 자동 생성
 │   ├── sitemap.ts              # sitemap.xml (services.ts 에서 파생)
 │   ├── api/contact/route.ts    # 문의 폼 API (Discord Webhook)
 │   └── services/[slug]/        # 서비스 상세 페이지 (동적 라우팅)
 ├── components/
 │   ├── Header.tsx
-│   ├── PageHero.tsx            # /about · /portfolio 공통 서브페이지 헤더
+│   ├── PageHero.tsx            # 서브페이지 공통 헤더 (breadcrumb 포함)
+│   ├── CatalogGrid.tsx         # 카탈로그 품목 카드 그리드 (사진 없으면 slug 해시 그라데이션)
+│   ├── PackagesSection.tsx     # 홈 — 행사 유형별 패키지 + 카탈로그 진입점
 │   ├── HeroSection.tsx
 │   ├── ProblemSolutionSection.tsx
 │   ├── ServicesSection.tsx
@@ -43,6 +48,8 @@ src/
     ├── services.ts             # ⭐ 서비스 정본 (홈 카드 + 상세 + 푸터 + 사이트맵 + JSON-LD)
     ├── company.ts              # ⭐ 회사 정보 정본 (회사소개서와 동기화)
     ├── faq.ts                  # ⭐ FAQ 정본 (FaqSection + JSON-LD FAQPage)
+    ├── catalog.ts              # ⭐ 셀러 품목 27종 + 푸드트럭 메뉴 24종 (⚠️ 사진 정책 주석 필독)
+    ├── packages.ts             # ⭐ 행사 유형별 패키지 4종 (services·catalog·portfolio 를 slug 로 참조)
     └── portfolio.ts            # 포트폴리오 케이스 스터디
 ```
 
@@ -161,3 +168,34 @@ src/
 - 신규 공통 컴포넌트 `PageHero.tsx` (서브페이지 헤더 + breadcrumb)
 - 검증: `next build` · `tsc --noEmit` · ESLint(src 무결) 통과, 9개 라우트 전부 200 / 없는 slug 404 유지, 실기기 뷰포트(1280·390) 스크린샷 확인, 콘솔 에러 0건
 - ⚠️ 남은 것: `public/portfolio/` 에 실사진이 **0장** — 진행 이력·홈 카드가 전부 그라데이션 플레이스홀더다. 사진을 넣으면 자동으로 사진이 우선한다 (`public/portfolio/[id].jpg`, `portfolio.ts` 의 `image` 필드)
+
+### 2026-09-19 (3) — 📚 카탈로그 웹페이지화 + 행사 유형별 패키지 + 카피 각도 전환
+
+**배경:** 경쟁사 잔치꾼(janchiggun.co.kr) 참고 요청. 사이트가 **모든 경로를 403 "접근이 제한되었어요"로 차단**해
+직접 열지 못했다 (UA 우회는 하지 않음 — 의도적 차단 + FLIT 쪽 "경쟁사 스크래핑 금지" 방침과 같은 선상).
+검색 결과의 URL 패턴(`/202/?idx=1671` 시상대, `/252/?idx=143` VIP의자 …)만으로 구조는 읽혔다:
+**품목 하나하나가 페이지**이고 그게 롱테일 검색을 먹는다. 대조해보니 **플릿은 같은 자산을 이미 만들어놓고
+PPTX 안에 가둬놨었다** — 셀러 품목 27종, 푸드트럭 메뉴 24종이 웹에 0개.
+
+- **카탈로그 웹페이지화** (`src/data/catalog.ts` ← `docs/catalog-build.js` 의 SL/FT 배열에서 추출)
+  - `/sellers` 셀러 품목 27종 (보유 셀러 수 배지 + 현장 운영 특성), `/foodtruck` 푸드트럭 메뉴 24종
+  - 상단 수치는 **데이터 파생** — 보유 셀러 합계 176곳도 배열에서 계산한다
+- ⚠️ **사진 정책 — 반드시 지킬 것** (`docs/photos` 하위 README 의 제약을 코드 주석으로 옮겨놨다)
+  - 셀러 사진 27장: CC0 스톡이라 웹 게시 OK. **단 실제 참여 셀러 상품 사진이 아니므로 고지 필수**
+    (`SELLER_PHOTO_NOTICE`). `/sellers` 와 패키지 상세 양쪽에 노출 중 — 지우지 말 것
+  - 푸드트럭 사진 14장: **크러쉬 F&P 사업제안서에서 추출한 자료로 "내부 검토용" 제한.**
+    웹사이트는 외부 배포이므로 **싣지 않았다.** 각 트럭에서 직접 받은 사진으로 교체한 뒤에만 `photo` 를 채울 것
+- **행사 유형별 패키지** (`src/data/packages.ts`) — 잔치꾼의 '제막식 세트·워크숍 세트' 대응
+  - `/packages` + `/packages/[slug]` 4종: 대학 축제 / 아파트 야시장 / 지자체 축제 부스 / 기업 행사
+  - 각 패키지가 services·catalog·portfolio 를 **slug 로 참조**해 구성·추천 셀러·추천 푸드트럭·관련 사례를 조립
+  - "이 유형에서 실제로 문제가 되는 것" 섹션 — 포화 품목 제한, 전기 용량, 반려동물 동반 여부, 주류 허가 등
+  - ⚠️ **slug 오타는 조용히 빈 화면이 된다.** 검증 스크립트로 전수 확인했고, 품목·사례를 지울 때는
+    `packages.ts` 의 참조도 함께 확인할 것
+- **카피 각도 전환** — 잔치꾼의 "**행사 담당자부터** 즐거운 서비스" 각도 차용. 기능 나열("주최 측 인력 투입 최소화")
+  에서 **담당자 개인의 부담·불안**으로: 히어로 본문("행사 담당자가 할 일을 대신합니다"), 홈 과제/해법 3종을
+  "날짜는 잡혔는데 이걸 저 혼자 다 해야 하나요 / 당일에 셀러가 안 나타나면 / 끝나고 보고서는 또 어떻게" 로 교체
+- 홈에 `PackagesSection` 신설 (서비스 섹션 다음) — 패키지 4종 카드 + 카탈로그 2개 진입점.
+  네비·푸터에도 연결해 고아 페이지가 되지 않게 함
+- 헤더 네비 5개로 재편: 서비스 / 행사 유형별 / 셀러 품목 / 진행 이력 / 회사 소개
+- 검증: `next build`·`tsc`·ESLint(src 무결) 통과, 12개 라우트 200 / 없는 slug 404, 사이트맵 16 URL,
+  셀러 27카드+사진 27장 / 푸드트럭 24카드+**사진 0장**(정책대로) 확인, 콘솔 에러 0건

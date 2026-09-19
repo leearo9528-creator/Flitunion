@@ -62,23 +62,22 @@ export default function Footer() {
           {/* Company + Contact */}
           <div>
             <nav aria-label="회사 링크" className="mb-8">
-              <h3 className="text-sm font-semibold text-white mb-4">회사</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">둘러보기</h3>
               <ul className="space-y-2.5 text-sm">
-                <li>
-                  <Link href="/about" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
-                    회사 소개
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/portfolio" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
-                    진행 이력
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#contact" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
-                    상담 신청
-                  </Link>
-                </li>
+                {[
+                  { href: "/packages", label: "행사 유형별 패키지" },
+                  { href: "/sellers", label: "셀러 품목 27종" },
+                  { href: "/foodtruck", label: "푸드트럭 메뉴 24종" },
+                  { href: "/portfolio", label: "진행 이력" },
+                  { href: "/about", label: "회사 소개" },
+                  { href: "/#contact", label: "상담 신청" },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
 

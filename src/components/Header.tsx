@@ -8,10 +8,11 @@ import Link from "next/link";
  * "#services" 로 두면 /about·/portfolio 같은 서브페이지에서 그 페이지 안의 앵커를 찾아 아무 데도 가지 않는다.
  */
 const navLinks = [
-  { href: "/about", label: "회사 소개" },
   { href: "/#services", label: "서비스" },
+  { href: "/packages", label: "행사 유형별" },
+  { href: "/sellers", label: "셀러 품목" },
   { href: "/portfolio", label: "진행 이력" },
-  { href: "/#faq", label: "자주 묻는 질문" },
+  { href: "/about", label: "회사 소개" },
 ];
 
 export default function Header() {
