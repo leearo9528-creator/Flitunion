@@ -118,3 +118,12 @@ src/
   - `SellerCtaSection.tsx` **신규**: Portfolio ↔ FAQ 사이 thin promo strip. 파란 그라데이션 배경 + F 배지 + "플릿에서 참여하기" 버튼. `page.tsx` 에 삽입
   - ContactSection 폼은 B2B 전용으로 보호 (셀러 깔때기와 분리)
 - 사전 작업 중 발견한 `src/app/api/contact/route.ts` 의 잘못된 닫는 중괄호 1줄 제거 (빌드 차단 오류)
+
+### 2026-09-19
+- 🐛 **서비스 상세 페이지 4개 전부 404** 수정 (`src/app/services/[slug]/page.tsx`)
+  - 증상: 프로덕션에서 `/services/flea-market`·`night-market`·`food-truck`·`rental` 이 모두 404. 홈 서비스 카드와 `sitemap.xml` 이 가리키는 링크 전부가 죽어 있었다
+  - 원인: **Next 16 에서 `params` 는 Promise** 인데 `params.slug` 를 동기 접근하고 있었다 → `slug` 가 `undefined` → `services.find()` 실패 → `notFound()`. 빌드 단계에서 4개 페이지가 `"status": 404` 로 프리렌더됨 (`.next/server/app/services/*.meta` 로 확인)
+  - ⚠️ `next build` 와 `tsc --noEmit` 이 **모두 통과**한다 — 타입 에러도 빌드 실패도 없이 조용히 404 를 굽는다. 빌드 성공만으로는 이 부류를 못 잡으니, 동적 라우트는 `.next/server/app/**/*.meta` 의 status 나 `npm run start` 후 실제 응답으로 확인할 것
+  - 수정: `generateMetadata`/페이지 컴포넌트를 `async` 로 바꾸고 `params: Promise<{ slug: string }>` 타입 + `const { slug } = await params`
+  - 검증: 4개 경로 200 + 제목·canonical 정상, 없는 slug(`/services/nope`)는 404 유지
+  - 동일 패턴 전수 점검 완료 — `src/` 내 다른 미대기 async API 없음 (`api/contact/approve/route.ts` 의 `request.nextUrl.searchParams` 는 동기 API 라 정상)
