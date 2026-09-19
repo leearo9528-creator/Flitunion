@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { portfolioItems } from "@/data/portfolio";
 import FadeInSection from "./FadeInSection";
 
@@ -21,7 +22,7 @@ export default function PortfolioSection() {
             검증된 운영 실적, 직접 확인하세요
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
-            플리마켓·야시장·푸드트럭·렌탈까지, 전국 다양한 공간의 실제 운영 사례입니다.
+            대학 축제·지자체 축제·아파트 커뮤니티까지, 전국에서 직접 운영한 행사 사례입니다.
           </p>
           <p className="text-sm text-gray-400 mt-2">카드를 클릭하면 상세 내용을 확인할 수 있습니다.</p>
         </FadeInSection>
@@ -151,12 +152,26 @@ export default function PortfolioSection() {
           })}
         </div>
 
+        {/* 전체 진행 이력 */}
+        <FadeInSection className="mt-8 text-center">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-xl text-sm transition-colors hover:bg-blue-50"
+            style={{ color: "#3182f6", border: "1px solid #bfdbfe", background: "#ffffff" }}
+          >
+            전체 진행 이력 자세히 보기
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </FadeInSection>
+
         {/* CTA Banner */}
         <FadeInSection className="mt-10">
           <div className="rounded-2xl p-10 text-center text-white" style={{ background: "#3182f6" }}>
             <h3 className="text-2xl font-black mb-3">다음 성공 사례의 주인공이 되세요</h3>
             <p className="mb-6 leading-relaxed" style={{ color: "#dbeafe" }}>
-              귀하의 공간에 맞는 플리마켓·야시장 플랜을 무료로 제안해 드립니다.
+              준비하시는 행사에 맞는 운영 플랜을 무료로 제안해 드립니다.
             </p>
             <a
               href="#contact"

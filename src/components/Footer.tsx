@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { services } from "@/data/services";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -14,12 +17,12 @@ export default function Footer() {
               <span className="text-xl font-black text-white">Union</span>
             </div>
             <p className="text-sm leading-relaxed mb-1" style={{ color: "#6b7280" }}>
-              플리마켓·야시장·푸드트럭 운영 대행 및 유휴공간 수익화 솔루션
+              검증된 셀러 네트워크 기반의 행사 운영 원스톱 대행 전문 기업
             </p>
             <p className="text-sm leading-relaxed mb-5" style={{ color: "#6b7280" }}>
-              Flit 셀러 네트워크 기반의 플리마켓 운영 대행 전문 기업.
+              행사 기획·셀러 모집·푸드트럭 섭외·장비 렌탈·현장 운영·정산까지
               <br />
-              셀러 모집·푸드트럭 섭외·장비 렌탈·현장 운영까지 원스톱 제공.
+              창구 하나로 진행합니다.
             </p>
             <a
               href="https://app.flitunion.com"
@@ -42,35 +45,73 @@ export default function Footer() {
           <nav aria-label="서비스 링크">
             <h3 className="text-sm font-semibold text-white mb-4">서비스</h3>
             <ul className="space-y-2.5 text-sm">
-              {["플리마켓 운영 대행", "야시장 행사 운영", "푸드트럭 섭외", "행사 장비 렌탈", "대학교 축제 기획"].map((item) => (
-                <li key={item}>
-                  <a href="#services" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>{item}</a>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="transition-colors hover:text-gray-200"
+                    style={{ color: "#6b7280" }}
+                  >
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Contact */}
-          <address className="not-italic">
-            <h3 className="text-sm font-semibold text-white mb-4">연락처</h3>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a href="tel:+821080188492" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>010-8018-8492</a>
-              </li>
-              <li>
-                <a href="mailto:hello@flitunion.com" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>hello@flitunion.com</a>
-              </li>
-              <li style={{ color: "#4b5563" }}>평일 09:00 – 18:00</li>
-            </ul>
-          </address>
+          {/* Company + Contact */}
+          <div>
+            <nav aria-label="회사 링크" className="mb-8">
+              <h3 className="text-sm font-semibold text-white mb-4">회사</h3>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <Link href="/about" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
+                    회사 소개
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
+                    진행 이력
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="transition-colors hover:text-gray-200" style={{ color: "#6b7280" }}>
+                    상담 신청
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <address className="not-italic">
+              <h3 className="text-sm font-semibold text-white mb-4">연락처</h3>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <a href="tel:+821080188492" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>010-8018-8492</a>
+                </li>
+                <li>
+                  <a href="mailto:hello@flitunion.com" className="hover:text-white transition-colors" style={{ color: "#6b7280" }}>hello@flitunion.com</a>
+                </li>
+                <li style={{ color: "#4b5563" }}>평일 09:00 – 18:00</li>
+              </ul>
+            </address>
+          </div>
         </div>
 
         <div className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs" style={{ borderColor: "#1f2937", color: "#4b5563" }}>
-          <p>© {currentYear} Flit Union 플릿 유니온. All rights reserved.</p>
+          <p>
+            © {currentYear} Flit Union 플릿 유니온. All rights reserved.
+            <span className="hidden sm:inline"> · </span>
+            <br className="sm:hidden" />
+            사업자등록번호 655-26-02147
+          </p>
           <nav aria-label="하단 링크">
             <ul className="flex gap-5">
-              <li><a href="#" className="hover:text-gray-300 transition-colors">개인정보처리방침</a></li>
-              <li><a href="#" className="hover:text-gray-300 transition-colors">이용약관</a></li>
+              <li>
+                <Link href="/about" className="hover:text-gray-300 transition-colors">회사 소개</Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="hover:text-gray-300 transition-colors">진행 이력</Link>
+              </li>
             </ul>
           </nav>
         </div>

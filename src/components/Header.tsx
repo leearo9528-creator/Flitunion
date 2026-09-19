@@ -3,11 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+/**
+ * 해시 링크는 반드시 "/#..." 형태로 둔다.
+ * "#services" 로 두면 /about·/portfolio 같은 서브페이지에서 그 페이지 안의 앵커를 찾아 아무 데도 가지 않는다.
+ */
 const navLinks = [
-  { href: "#services", label: "서비스" },
-  { href: "#portfolio", label: "포트폴리오" },
-  { href: "#faq", label: "자주 묻는 질문" },
-  { href: "#contact", label: "상담 신청" },
+  { href: "/about", label: "회사 소개" },
+  { href: "/#services", label: "서비스" },
+  { href: "/portfolio", label: "진행 이력" },
+  { href: "/#faq", label: "자주 묻는 질문" },
 ];
 
 export default function Header() {
@@ -16,6 +20,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -40,12 +45,12 @@ export default function Header() {
             <ul className="flex items-center gap-7">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,12 +66,12 @@ export default function Header() {
             >
               셀러 지원 →
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg btn-primary"
             >
               무료 상담 신청
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -91,23 +96,23 @@ export default function Header() {
             <ul className="flex flex-col gap-0.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-2 pb-1">
-                <a
-                  href="#contact"
+                <Link
+                  href="/#contact"
                   className="block px-4 py-2.5 text-white text-sm font-bold rounded-lg text-center btn-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   무료 상담 신청
-                </a>
+                </Link>
               </li>
               <li>
                 <a

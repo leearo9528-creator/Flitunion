@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function HeroSection() {
   return (
     <section
@@ -19,7 +21,7 @@ export default function HeroSection() {
             style={{ background: "rgba(49,130,246,0.18)", border: "1px solid rgba(49,130,246,0.4)", color: "#93c5fd" }}
           >
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#3182f6" }} aria-hidden="true" />
-            플릿(Flit) 셀러 네트워크 기반 운영 대행
+            플릿(Flit) 셀러 네트워크 기반 행사 대행
           </div>
 
           {/* H1 */}
@@ -27,19 +29,19 @@ export default function HeroSection() {
             id="hero-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6"
           >
-            공간에 생명을 불어넣는
+            행사 하나를 통째로
             <br />
-            <span style={{ color: "#3182f6" }}>행사 운영 대행</span>
+            맡기는 가장 확실한 방법
             <br />
-            플릿유니온
+            <span style={{ color: "#3182f6" }}>행사 대행 플릿유니온</span>
           </h1>
 
           <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl" style={{ color: "#cbd5e1" }}>
-            유휴공간을 수익 창출의 거점으로.
+            대학 축제부터 지자체 축제, 기업 행사까지.
             <br className="hidden sm:block" />
-            소형 공간부터 대형 축제까지 — 플릿에서 검증된 셀러 네트워크로
+            기획 · 셀러 섭외 · 장비 · 현장 운영 · 정산을
             <br className="hidden sm:block" />
-            <strong className="text-white">원스톱</strong>으로 책임집니다.
+            검증된 셀러 네트워크로 <strong className="text-white">창구 하나에서</strong> 책임집니다.
           </p>
 
           {/* CTA Buttons */}
@@ -54,15 +56,15 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <a
-              href="#portfolio"
+            <Link
+              href="/portfolio"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-semibold text-lg rounded-xl transition-colors"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)" }}
               onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
               onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
             >
-              운영 사례 보기
-            </a>
+              진행 이력 보기
+            </Link>
           </div>
 
           {/* Stats */}
