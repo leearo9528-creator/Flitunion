@@ -116,6 +116,13 @@ export default function FoodtruckPage() {
                       섭외 진행 방식 보기
                     </Link>
                   </div>
+                  <p className="text-sm mt-6" style={{ color: "#8ba3c7" }}>
+                    푸드트럭을 운영 중이시라면{" "}
+                    <Link href="/partners" className="font-semibold underline hover:text-white">
+                      협력사 등록
+                    </Link>
+                    을 해두세요. 행사가 생길 때 먼저 연락드립니다.
+                  </p>
                 </div>
               </div>
             </FadeInSection>

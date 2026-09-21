@@ -59,14 +59,12 @@ export default function Header() {
 
           {/* Desktop CTA group */}
           <div className="hidden md:flex items-center gap-5">
-            <a
-              href="https://app.flitunion.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/partners"
               className="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
             >
-              셀러 지원 →
-            </a>
+              협력사 등록 →
+            </Link>
             <Link
               href="/#contact"
               className="inline-flex items-center px-4 py-2 text-white text-sm font-bold rounded-lg btn-primary"
@@ -116,15 +114,13 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://app.flitunion.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/partners"
                   className="block px-3 py-2 text-sm font-medium text-gray-500 hover:text-blue-600 text-center transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
-                  셀러 지원 →
-                </a>
+                  협력사 등록 →
+                </Link>
               </li>
             </ul>
           </nav>

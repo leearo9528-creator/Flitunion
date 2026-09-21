@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FadeInSection from "./FadeInSection";
 
 export default function SellerCtaSection() {
@@ -31,22 +32,20 @@ export default function SellerCtaSection() {
                   id="seller-cta-heading"
                   className="text-lg sm:text-xl font-black text-gray-900 leading-snug mb-1"
                 >
-                  셀러로 활동하고 계신가요?
+                  푸드트럭·셀러로 활동하고 계신가요?
                 </h2>
                 <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
-                  플릿(Flit) 플랫폼에서 진행 중인 플리마켓·야시장·축제 부스에 직접 신청하고 참여할 수 있습니다.
+                  플릿 유니온 협력사로 등록해두시면 조건이 맞는 행사가 생길 때 먼저 연락드립니다. 등록 무료, 참가 의무 없습니다.
                 </p>
               </div>
             </div>
 
-            <a
-              href="https://app.flitunion.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/partners"
               className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm rounded-xl btn-primary whitespace-nowrap"
-              aria-label="플릿 플랫폼에서 셀러로 참여하기 (새 창)"
+              aria-label="협력사 등록 신청하기"
             >
-              플릿에서 참여하기
+              협력사 등록하기
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -61,7 +60,7 @@ export default function SellerCtaSection() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </FadeInSection>
       </div>

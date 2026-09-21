@@ -118,11 +118,11 @@ export default function SellersPage() {
                     </Link>
                   </div>
                   <p className="text-sm mt-6" style={{ color: "#8ba3c7" }}>
-                    셀러로 참여하고 싶으시다면{" "}
-                    <a href="https://app.flitunion.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:text-white">
-                      플릿 플랫폼
-                    </a>
-                    에서 상시 지원하실 수 있습니다.
+                    셀러로 활동 중이시라면{" "}
+                    <Link href="/partners" className="font-semibold underline hover:text-white">
+                      협력사 등록
+                    </Link>
+                    을 해두세요. 이 카탈로그에 프로필이 실립니다.
                   </p>
                 </div>
               </div>

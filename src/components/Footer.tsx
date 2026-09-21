@@ -70,6 +70,7 @@ export default function Footer() {
                   { href: "/foodtruck", label: "푸드트럭 메뉴 24종" },
                   { href: "/portfolio", label: "진행 이력" },
                   { href: "/about", label: "회사 소개" },
+                  { href: "/partners", label: "협력사 등록" },
                   { href: "/#contact", label: "상담 신청" },
                 ].map((link) => (
                   <li key={link.href}>
