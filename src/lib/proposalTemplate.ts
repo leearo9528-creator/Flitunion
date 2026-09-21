@@ -68,7 +68,7 @@ export function buildProposalHtml(data: ProposalData) {
       </p>
       <p style="margin:0;font-size:14px;line-height:1.7;color:#4b5563;">
         문의 주신 내용을 검토하고, 운영 가능한 기획 방향을 정리했습니다.
-        아래 내용을 살펴보시고 편하게 회신 또는 전화 주시면 더 구체적인 견적과 일정으로 답변드리겠습니다.
+        아래 내용을 검토하신 후 회신 또는 전화 주시면 더 구체적인 견적과 일정으로 답변드리겠습니다.
       </p>
     </div>
 
@@ -116,12 +116,12 @@ export function buildProposalHtml(data: ProposalData) {
       <div style="background:#0a1e3d;border-radius:14px;padding:24px;text-align:center;">
         <p style="margin:0 0 8px;color:#93c5fd;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Next Step</p>
         <p style="margin:0 0 18px;color:#ffffff;font-size:15px;line-height:1.6;">
-          상세 견적과 운영 일정은<br>15분 내외의 상담으로 빠르게 정리해드립니다.
+          상세 견적과 운영 일정은<br>15분 내외의 상담으로 정리해 드립니다.
         </p>
         <a href="tel:+821080188492" style="display:inline-block;background:#3182f6;color:#ffffff;padding:13px 28px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;">
           📞 010-8018-8492 전화 상담
         </a>
-        <p style="margin:14px 0 0;color:#94a3b8;font-size:12px;">또는 이 메일에 바로 회신해 주세요.</p>
+        <p style="margin:14px 0 0;color:#94a3b8;font-size:12px;">또는 본 메일로 회신해 주시기 바랍니다.</p>
       </div>
     </div>
 

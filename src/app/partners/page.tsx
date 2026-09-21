@@ -27,31 +27,31 @@ export const metadata: Metadata = {
 const benefits = [
   {
     icon: "📋",
-    title: "모집 공고를 찾아다니지 않아도 됩니다",
-    desc: "등록해두시면 행사 콘셉트와 지역이 맞을 때 저희가 먼저 연락드립니다. 매번 공고를 검색하고 신청서를 새로 쓰지 않으셔도 됩니다.",
+    title: "모집 공고를 직접 찾지 않으셔도 됩니다",
+    desc: "등록해 두시면 행사 콘셉트와 지역이 맞을 때 플릿 유니온이 우선 연락드립니다. 매번 공고를 검색하고 신청서를 새로 작성하지 않으셔도 됩니다.",
   },
   {
     icon: "🗂️",
-    title: "프로필이 제안서에 실립니다",
-    desc: "주최사에 보내는 카탈로그와 제안서에 품목·메뉴 프로필이 들어갑니다. 주최 기관이 구성을 고를 때 직접 보게 되는 자리입니다.",
+    title: "프로필이 제안서에 수록됩니다",
+    desc: "주최사에 전달하는 카탈로그와 제안서에 품목·메뉴 프로필이 포함됩니다. 주최 기관이 구성을 선정할 때 직접 확인하는 자료입니다.",
   },
   {
     icon: "🎪",
     title: "대학 축제 · 지자체 축제 물량",
-    desc: "개인이 뚫기 어려운 대학 축제, 지자체 대형 축제, 아파트 단지 행사를 플릿 유니온이 수주해 배치합니다.",
+    desc: "개별 접촉이 어려운 대학 축제, 지자체 대형 축제, 아파트 단지 행사를 플릿 유니온이 수주하여 배정합니다.",
   },
   {
     icon: "🧾",
-    title: "정산이 한 창구에서 끝납니다",
-    desc: "참가비와 정산을 플릿 유니온이 주최 측과 정리합니다. 행사마다 다른 담당자와 따로 협의하지 않으셔도 됩니다.",
+    title: "정산을 하나의 창구에서 진행합니다",
+    desc: "참가비와 정산은 플릿 유니온이 주최 측과 직접 처리합니다. 행사마다 다른 담당자와 개별 협의하지 않으셔도 됩니다.",
   },
 ];
 
 const steps = [
-  { step: "01", title: "등록 신청", desc: "아래 폼에 업체명·연락처·품목·활동 지역만 남겨주세요. 1분이면 됩니다." },
-  { step: "02", title: "확인 연락", desc: "담당자가 확인 후 연락드려 활동 조건과 가능한 행사 유형을 간단히 여쭤봅니다." },
-  { step: "03", title: "프로필 등록", desc: "사진과 소개를 받아 카탈로그에 프로필을 올립니다. 이후 제안서에 함께 나갑니다." },
-  { step: "04", title: "행사 섭외", desc: "조건이 맞는 행사가 생기면 일정·참가비·현장 조건을 담아 연락드립니다." },
+  { step: "01", title: "등록 신청", desc: "아래 양식에 업체명, 연락처, 품목, 활동 지역을 남겨 주시기 바랍니다. 1분이면 작성하실 수 있습니다." },
+  { step: "02", title: "확인 연락", desc: "담당자가 확인 후 연락드려 활동 조건과 가능한 행사 유형을 확인합니다." },
+  { step: "03", title: "프로필 등록", desc: "사진과 소개를 받아 카탈로그에 프로필을 등록합니다. 이후 제안서에 함께 수록됩니다." },
+  { step: "04", title: "행사 섭외", desc: "조건이 맞는 행사가 있을 때 일정, 참가비, 현장 조건을 안내하여 연락드립니다." },
 ];
 
 export default function PartnersPage() {
@@ -65,11 +65,11 @@ export default function PartnersPage() {
           breadcrumb="협력사 등록"
           title={
             <>
-              함께 행사 돌 팀을
-              <br className="hidden sm:block" /> 찾고 있습니다
+              함께 행사를 운영할
+              <br className="hidden sm:block" /> 협력사를 찾고 있습니다
             </>
           }
-          description="플릿 유니온이 운영하는 대학 축제·지자체 축제·아파트 야시장에 들어갈 푸드트럭과 셀러를 모집합니다. 등록해두시면 조건이 맞는 행사가 생길 때 먼저 연락드립니다."
+          description="플릿 유니온이 운영하는 대학 축제·지자체 축제·아파트 야시장에 참여하실 푸드트럭과 셀러를 모집합니다. 등록해 두시면 조건이 맞는 행사가 있을 때 우선 연락드립니다."
         >
           <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3">
             {keyStats.map((stat) => (
@@ -85,7 +85,7 @@ export default function PartnersPage() {
           </div>
 
           <p className="mt-6 text-sm" style={{ color: "#8ba3c7" }}>
-            등록 무료 · 참가 의무 없음 · 사업자등록 없어도 신청 가능
+            등록 무료 · 참가 의무 없음 · 사업자등록 없이도 신청 가능
           </p>
         </PageHero>
 
@@ -93,10 +93,10 @@ export default function PartnersPage() {
         <section className="py-16 sm:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInSection className="mb-10">
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">등록하면 뭐가 달라지나요?</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">등록하시면 무엇이 달라집니까?</h2>
               <p className="text-gray-600 leading-relaxed max-w-2xl break-keep">
                 플릿 유니온은 주최 기관에서 행사를 수주해 운영하는 대행사입니다. 셀러·푸드트럭을 직접 섭외해 배치하기
-                때문에, 등록된 업체는 저희가 구성을 짤 때 먼저 검토하는 풀에 들어갑니다.
+                때문에, 등록하신 업체는 구성을 편성할 때 우선 검토 대상이 됩니다.
               </p>
             </FadeInSection>
 
@@ -120,7 +120,7 @@ export default function PartnersPage() {
             <FadeInSection className="mb-10">
               <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">등록부터 섭외까지</h2>
               <p className="text-gray-600 leading-relaxed break-keep">
-                등록한다고 바로 행사에 나가야 하는 건 아닙니다. 조건이 맞을 때 연락드리고, 그때 결정하시면 됩니다.
+                등록하신다고 하여 즉시 행사에 참여하셔야 하는 것은 아닙니다. 조건이 맞을 때 연락드리며, 참여 여부는 그때 결정하시면 됩니다.
               </p>
             </FadeInSection>
 
@@ -149,7 +149,7 @@ export default function PartnersPage() {
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">협력사 등록 신청</h2>
               <p className="text-gray-600 leading-relaxed break-keep">
-                다섯 칸이면 끝납니다. 세부 조건은 연락드릴 때 여쭤볼게요.
+                다섯 항목만 작성하시면 됩니다. 세부 조건은 연락드릴 때 확인합니다.
               </p>
             </FadeInSection>
 
@@ -164,10 +164,10 @@ export default function PartnersPage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInSection>
               <div className="rounded-2xl px-6 py-6 sm:px-8" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
-                <h2 className="text-base font-bold text-gray-900 mb-2">지금 어떤 구성으로 나가는지 보실 수 있습니다</h2>
+                <h2 className="text-base font-bold text-gray-900 mb-2">현재 어떤 구성으로 제공되는지 확인하실 수 있습니다</h2>
                 <p className="text-sm text-gray-700 leading-relaxed mb-4 break-keep">
                   현재 셀러 품목 {sellerItems.length}종, 푸드트럭 메뉴 {foodtruckItems.length}종을 운영 중입니다.
-                  등록하시면 이 카탈로그에 프로필이 추가됩니다.
+                  등록하시면 본 카탈로그에 프로필이 추가됩니다.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/sellers" className="text-sm font-bold" style={{ color: "#1b64da" }}>
@@ -185,10 +185,10 @@ export default function PartnersPage() {
 
             <FadeInSection className="mt-6">
               <div className="rounded-2xl px-6 py-6 sm:px-8 border border-gray-200">
-                <h2 className="text-base font-bold text-gray-900 mb-2">스스로 행사를 찾아보고 싶으시다면</h2>
+                <h2 className="text-base font-bold text-gray-900 mb-2">직접 행사를 찾아보고자 하신다면</h2>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4 break-keep">
                   플릿 유니온 협력사 등록과 별개로, 플릿(Flit) 플랫폼에서는 전국의 플리마켓·축제 모집 공고를 직접
-                  검색하고 신청하실 수 있습니다. 둘 다 이용하셔도 됩니다.
+                  검색하고 신청하실 수 있습니다. 양쪽 모두 이용하실 수 있습니다.
                 </p>
                 <a
                   href="https://app.flitunion.com"

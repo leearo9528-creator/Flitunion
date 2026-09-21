@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
   } catch (err) {
     console.error("Send error:", err);
     return new Response(
-      htmlPage("발송 실패", `<div class="icon" style="background:#fee2e2;color:#dc2626">!</div><h1>이메일 발송 실패</h1><p>잠시 후 다시 시도해주세요.</p>`, "#dc2626"),
+      htmlPage("발송 실패", `<div class="icon" style="background:#fee2e2;color:#dc2626">!</div><h1>이메일 발송 실패</h1><p>잠시 후 다시 시도해 주십시오.</p>`, "#dc2626"),
       { status: 500, headers: { "Content-Type": "text/html; charset=utf-8" } }
     );
   }

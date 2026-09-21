@@ -112,12 +112,12 @@ export default function ContactSection() {
               id="contact-heading"
               className="text-3xl sm:text-4xl font-black text-white leading-tight mb-4"
             >
-              플리마켓·야시장 운영,
+              행사 운영 대행,
               <br />
-              지금 바로 무료 상담받으세요
+              무료 상담을 신청하시기 바랍니다
             </h2>
             <p className="leading-relaxed mb-10 text-sm" style={{ color: "#94a3b8" }}>
-              공간 위치와 행사 유형을 알려주시면 48시간 이내에 맞춤 기획안을 무료로 제안드립니다.
+              행사 장소와 유형을 알려주시면 48시간 이내에 맞춤 기획안을 무료로 제안해 드립니다.
             </p>
 
             <ul className="space-y-5" aria-label="연락처 정보">
@@ -171,7 +171,7 @@ export default function ContactSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">문의가 접수되었습니다!</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">문의가 접수되었습니다</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">48시간 이내에 맞춤 기획안과 함께 연락드리겠습니다.</p>
                 </div>
               ) : (
@@ -210,7 +210,7 @@ export default function ContactSection() {
                         value={form.email} onChange={handleChange} placeholder="contact@example.com"
                         className={inputClass}
                       />
-                      <p className="mt-1 text-xs text-gray-400">맞춤 기획안을 이 이메일로 보내드립니다.</p>
+                      <p className="mt-1 text-xs text-gray-400">맞춤 기획안을 해당 이메일로 발송해 드립니다.</p>
                     </div>
 
                     <div>
@@ -222,7 +222,7 @@ export default function ContactSection() {
                         value={form.spaceType} onChange={handleChange}
                         className={inputClass}
                       >
-                        <option value="" disabled>행사 유형을 선택하세요</option>
+                        <option value="" disabled>행사 유형을 선택해 주십시오</option>
                         {spaceTypes.map((t) => (
                           <option key={t.value} value={t.value}>{t.label}</option>
                         ))}
@@ -259,7 +259,7 @@ export default function ContactSection() {
                       <textarea
                         id="message" name="message" rows={3}
                         value={form.message} onChange={handleChange}
-                        placeholder="공간 규모, 원하시는 행사 콘셉트, 예산, 푸드트럭 필요 여부 등을 자유롭게 적어주세요."
+                        placeholder="행사 규모, 원하시는 콘셉트, 예산, 푸드트럭 필요 여부 등을 자유롭게 기재해 주십시오."
                         className={`${inputClass} resize-none`}
                       />
                     </div>

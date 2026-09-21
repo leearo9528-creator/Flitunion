@@ -36,11 +36,11 @@ export default function SellersPage() {
           breadcrumb="셀러 품목"
           title={
             <>
-              어떤 셀러가 오는지
-              <br className="hidden sm:block" /> 미리 보고 정하세요
+              참여 셀러 구성을
+              <br className="hidden sm:block" /> 미리 확인하실 수 있습니다
             </>
           }
-          description="플릿 유니온이 행사에 배치할 수 있는 플리마켓 셀러 품목입니다. 보유 셀러가 많은 순으로 정리했고, 품목마다 현장에서 어떻게 작동하는지 함께 적었습니다."
+          description="플릿 유니온이 행사에 배치할 수 있는 플리마켓 셀러 품목입니다. 보유 셀러가 많은 순으로 정리하였으며, 품목마다 현장 운영 특성을 함께 기재하였습니다."
         >
           <div className="mt-10 flex flex-wrap gap-3">
             <div className="rounded-xl px-5 py-3" style={{ background: "rgba(49,130,246,0.18)", border: "1px solid rgba(49,130,246,0.4)" }}>
@@ -59,9 +59,9 @@ export default function SellersPage() {
             <FadeInSection className="mb-8">
               <div className="rounded-2xl px-6 py-5" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
                 <p className="text-sm text-gray-700 leading-relaxed break-keep">
-                  <strong className="font-bold text-gray-900">행사 성격에 맞춰 조합합니다.</strong> 모든 품목을 한 행사에
-                  전부 넣지는 않습니다. 방문자 구성과 공간 규모를 보고 카테고리가 겹치지 않게 선별해 배치하며, 포화
-                  품목은 행사당 수를 제한합니다.
+                  <strong className="font-bold text-gray-900">행사 성격에 맞춰 조합합니다.</strong> 모든 품목을 하나의 행사에
+                  전부 배치하지는 않습니다. 방문자 구성과 공간 규모를 검토하여 카테고리가 중복되지 않도록 선별 배치하며, 포화
+                  품목은 행사당 수량을 제한합니다.
                 </p>
               </div>
             </FadeInSection>
@@ -100,10 +100,10 @@ export default function SellersPage() {
                 />
                 <div className="relative">
                   <h2 className="text-2xl sm:text-3xl font-black leading-snug mb-4">
-                    우리 행사에는 어떤 구성이 맞을까요?
+                    행사에 적합한 구성을 제안해 드립니다
                   </h2>
                   <p className="leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "#c7d5ea" }}>
-                    행사 성격과 예상 방문자를 알려주시면 품목 구성안을 만들어 드립니다.
+                    행사 성격과 예상 방문자를 알려주시면 품목 구성안을 작성해 드립니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link href="/#contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-bold rounded-xl btn-primary">
@@ -122,7 +122,7 @@ export default function SellersPage() {
                     <Link href="/partners" className="font-semibold underline hover:text-white">
                       협력사 등록
                     </Link>
-                    을 해두세요. 이 카탈로그에 프로필이 실립니다.
+                    을 해 두시기 바랍니다. 본 카탈로그에 프로필이 수록됩니다.
                   </p>
                 </div>
               </div>

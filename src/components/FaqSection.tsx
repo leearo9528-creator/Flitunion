@@ -74,7 +74,7 @@ export default function FaqSection() {
             자주 묻는 질문
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            행사 대행을 의뢰하시기 전, 궁금한 점을 미리 확인하세요.
+            행사 대행을 의뢰하시기 전 궁금하신 점을 미리 확인하실 수 있습니다.
           </p>
         </FadeInSection>
 
@@ -93,7 +93,7 @@ export default function FaqSection() {
           </div>
 
           <div className="mt-8 rounded-2xl p-6 text-center" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
-            <p className="text-gray-800 font-semibold mb-3 text-sm">더 궁금한 점이 있으신가요?</p>
+            <p className="text-gray-800 font-semibold mb-3 text-sm">추가로 궁금하신 점이 있으십니까?</p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 font-bold text-sm transition-colors hover:opacity-80"

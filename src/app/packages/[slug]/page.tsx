@@ -98,7 +98,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
         </PageHero>
 
         {/* 포함 구성 */}
-        <Section title="패키지 구성" desc="이 유형에서 기본으로 들어가는 항목입니다. 필요 없는 항목은 빼고 조정하실 수 있습니다.">
+        <Section title="패키지 구성" desc="해당 유형에 기본 포함되는 항목입니다. 불필요한 항목은 제외하고 조정하실 수 있습니다.">
           <div className="grid sm:grid-cols-2 gap-4">
             {pkg.includes.map((inc, i) => (
               <FadeInSection key={inc.title} delay={i * 60}>
@@ -120,7 +120,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
 
         {/* 운영 포인트 */}
         <div style={{ background: "#f8fafc" }}>
-          <Section title="이 유형에서 실제로 문제가 되는 것" desc="여러 번 운영하면서 확인한 부분입니다. 미리 정해두면 현장에서 마찰이 없습니다.">
+          <Section title="해당 유형에서 유의해야 할 사항" desc="반복 운영을 통해 확인한 사항입니다. 사전에 협의해 두시면 현장에서 문제가 발생하지 않습니다.">
             <div className="space-y-3">
               {pkg.notes.map((n, i) => (
                 <FadeInSection key={n.title} delay={i * 60}>
@@ -157,7 +157,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
         <div style={{ background: "#f8fafc" }}>
           <Section
             title="추천 셀러 구성"
-            desc="이 유형에서 반응이 좋은 품목입니다. 전체 품목은 셀러 카탈로그에서 보실 수 있습니다."
+            desc="해당 유형에서 반응이 좋은 품목입니다. 전체 품목은 셀러 카탈로그에서 확인하실 수 있습니다."
           >
             <FadeInSection>
               <CatalogGrid
@@ -174,7 +174,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
         </div>
 
         {/* 추천 푸드트럭 */}
-        <Section title="추천 푸드트럭 라인업" desc="메뉴가 겹치지 않게, 객단가와 회전 속도를 섞어 구성합니다.">
+        <Section title="추천 푸드트럭 라인업" desc="메뉴가 중복되지 않도록 객단가와 회전 속도를 안배하여 구성합니다.">
           <FadeInSection>
             <CatalogGrid items={pkgTrucks.map((i) => ({ slug: i.slug, title: i.title, desc: i.desc, photo: i.photo }))} />
           </FadeInSection>
@@ -188,7 +188,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
         {/* 관련 진행 이력 */}
         {cases.length > 0 ? (
           <div style={{ background: "#f8fafc" }}>
-            <Section title="이 유형의 진행 이력" desc="실제로 운영한 사례입니다.">
+            <Section title="해당 유형의 진행 이력" desc="실제로 운영한 사례입니다.">
               <div className="grid sm:grid-cols-3 gap-4">
                 {cases.map((c, i) => (
                   <FadeInSection key={c.id} delay={i * 60}>
@@ -225,9 +225,9 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <h2 className="text-2xl sm:text-3xl font-black leading-snug mb-4">{pkg.title}, 견적부터 받아보세요</h2>
+                  <h2 className="text-2xl sm:text-3xl font-black leading-snug mb-4">{pkg.title} 견적을 안내해 드립니다</h2>
                   <p className="leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "#c7d5ea" }}>
-                    날짜와 장소, 예상 방문자 수만 알려주시면 구성안과 예상 견적을 만들어 드립니다. 상담은 무료입니다.
+                    날짜와 장소, 예상 방문자 수를 알려주시면 구성안과 예상 견적을 작성해 드립니다. 상담은 무료입니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link href="/#contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-bold rounded-xl btn-primary">

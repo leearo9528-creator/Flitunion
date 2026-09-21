@@ -21,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "회사 소개 | 플릿 유니온(Flit Union) 행사 대행",
   description:
-    "플릿 유니온은 검증된 셀러 네트워크를 기반으로 행사 기획부터 현장 운영, 정산까지 대행하는 행사 대행 전문 기업입니다. 회사 개요, 비전, 운영 프로세스, 계약 안내를 확인하세요.",
+    "플릿 유니온은 검증된 셀러 네트워크를 기반으로 행사 기획부터 현장 운영, 정산까지 대행하는 행사 대행 전문 기업입니다. 회사 개요, 비전, 운영 프로세스, 계약 안내를 확인하실 수 있습니다.",
   alternates: { canonical: "https://flitunion.com/about" },
   openGraph: {
     type: "website",
@@ -68,8 +68,8 @@ export default function AboutPage() {
           breadcrumb="회사 소개"
           title={
             <>
-              행사를 통째로 맡기는 가장
-              <br className="hidden sm:block" /> 확실한 방법
+              행사 운영 전 과정을 위임하는
+              <br className="hidden sm:block" /> 가장 확실한 방법
             </>
           }
           description="플릿 유니온은 검증된 셀러 네트워크를 기반으로 행사 기획부터 셀러 섭외, 장비, 현장 운영, 정산까지 대행하는 행사 대행 전문 기업입니다."
@@ -238,7 +238,7 @@ export default function AboutPage() {
                 index="04"
                 en="Business Areas"
                 ko="사업 영역"
-                desc="행사에 필요한 영역을 개별 또는 패키지로 제공합니다. 필요한 부분만 맡기셔도 됩니다."
+                desc="행사에 필요한 영역을 개별 또는 패키지로 제공합니다. 필요한 부분만 의뢰하실 수도 있습니다."
               />
             </FadeInSection>
 
@@ -493,7 +493,7 @@ export default function AboutPage() {
                     <br className="hidden sm:block" /> 함께 열어 보시기 바랍니다.
                   </h2>
                   <p className="leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "#c7d5ea" }}>
-                    무료 상담을 통해 행사에 최적화된 운영 형태와 예상 수익 구조를 제안드립니다.
+                    무료 상담을 통해 행사에 최적화된 운영 형태와 예상 수익 구조를 제안해 드립니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link

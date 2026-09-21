@@ -27,7 +27,7 @@ export type EventPackage = {
   foodtruckSlugs: string[];
   /** 구성 요소 */
   includes: { title: string; desc: string }[];
-  /** 운영 포인트 — 이 유형에서 실제로 문제가 되는 것 */
+  /** 운영 포인트 — 해당 유형에서 유의해야 할 사항 */
   notes: { title: string; desc: string }[];
   /** 관련 진행 이력 (portfolio.ts 의 id) */
   portfolioIds: string[];

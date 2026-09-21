@@ -32,10 +32,10 @@ export default function SellerCtaSection() {
                   id="seller-cta-heading"
                   className="text-lg sm:text-xl font-black text-gray-900 leading-snug mb-1"
                 >
-                  푸드트럭·셀러로 활동하고 계신가요?
+                  푸드트럭·셀러로 활동하고 계십니까?
                 </h2>
                 <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>
-                  플릿 유니온 협력사로 등록해두시면 조건이 맞는 행사가 생길 때 먼저 연락드립니다. 등록 무료, 참가 의무 없습니다.
+                  플릿 유니온 협력사로 등록해 두시면 조건이 맞는 행사가 있을 때 우선 연락드립니다. 등록은 무료이며 참가 의무는 없습니다.
                 </p>
               </div>
             </div>

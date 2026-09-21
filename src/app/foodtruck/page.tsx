@@ -33,11 +33,11 @@ export default function FoodtruckPage() {
           breadcrumb="푸드트럭 메뉴"
           title={
             <>
-              메뉴가 겹치지 않게
-              <br className="hidden sm:block" /> 라인업을 짭니다
+              메뉴가 중복되지 않도록
+              <br className="hidden sm:block" /> 라인업을 구성합니다
             </>
           }
-          description="행사 섭외가 가능한 푸드트럭 메뉴입니다. 같은 메뉴가 두 대 들어가면 둘 다 매출이 깎입니다. 객단가와 회전 속도를 섞어 대기열이 한쪽에 몰리지 않도록 구성합니다."
+          description="행사 섭외가 가능한 푸드트럭 메뉴입니다. 동일 메뉴가 두 대 배치되면 양쪽 모두 매출이 감소합니다. 객단가와 회전 속도를 안배하여 대기열이 한쪽으로 몰리지 않도록 구성합니다."
         >
           <div className="mt-10 flex flex-wrap gap-3">
             <div className="rounded-xl px-5 py-3" style={{ background: "rgba(49,130,246,0.18)", border: "1px solid rgba(49,130,246,0.4)" }}>
@@ -56,9 +56,9 @@ export default function FoodtruckPage() {
             <FadeInSection className="mb-8">
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  { t: "메뉴 중복 없이", d: "같은 카테고리가 겹치지 않도록 라인업을 짭니다. 저단가 회전형과 객단가 높은 메인을 섞습니다." },
-                  { t: "전기·용수 사전 조율", d: "현장 전기 용량과 용수 여건을 미리 확인하고 트럭별 필요 설비를 맞춥니다." },
-                  { t: "예비 트럭 대기", d: "행사별로 예비 푸드트럭 1~2대를 대기시켜 당일 불참이 생겨도 즉시 대체합니다." },
+                  { t: "메뉴 중복 없이", d: "동일 카테고리가 중복되지 않도록 라인업을 구성합니다. 저단가 회전형과 객단가가 높은 메인 메뉴를 안배합니다." },
+                  { t: "전기·용수 사전 조율", d: "현장 전기 용량과 용수 여건을 사전에 확인하고 트럭별 필요 설비를 조율합니다." },
+                  { t: "예비 트럭 대기", d: "행사별로 예비 푸드트럭 1~2대를 대기시켜 당일 불참이 발생하더라도 즉시 대체합니다." },
                 ].map((c) => (
                   <div key={c.t} className="rounded-2xl p-5 border border-gray-100" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
                     <h2 className="text-sm font-bold text-gray-900 mb-1.5">{c.t}</h2>
@@ -98,11 +98,11 @@ export default function FoodtruckPage() {
                 />
                 <div className="relative">
                   <h2 className="text-2xl sm:text-3xl font-black leading-snug mb-4">
-                    몇 대가 적당할지부터 알려드립니다
+                    적정 운영 대수부터 안내해 드립니다
                   </h2>
                   <p className="leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "#c7d5ea" }}>
-                    예상 방문자 수와 공간 조건을 알려주시면 대수와 메뉴 조합을 제안드립니다. 마켓 운영 없이 푸드트럭
-                    섭외만 단독으로도 가능합니다.
+                    예상 방문자 수와 공간 조건을 알려주시면 운영 대수와 메뉴 조합을 제안해 드립니다. 마켓 운영 없이 푸드트럭
+                    섭외만 단독으로 진행하실 수도 있습니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link href="/#contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-bold rounded-xl btn-primary">
@@ -121,7 +121,7 @@ export default function FoodtruckPage() {
                     <Link href="/partners" className="font-semibold underline hover:text-white">
                       협력사 등록
                     </Link>
-                    을 해두세요. 행사가 생길 때 먼저 연락드립니다.
+                    을 해 두시기 바랍니다. 조건이 맞는 행사가 있을 때 우선 연락드립니다.
                   </p>
                 </div>
               </div>

@@ -47,10 +47,10 @@ export default function PortfolioPage() {
           title={
             <>
               직접 운영한 행사만
-              <br className="hidden sm:block" /> 기록합니다
+              <br className="hidden sm:block" /> 기록하고 있습니다
             </>
           }
-          description="대학교 축제, 아파트 단지, 지자체 대형 축제까지. 기획 배경부터 운영 방식, 셀러 구성, 성과까지 그대로 공개합니다."
+          description="대학교 축제, 아파트 단지, 지자체 대형 축제까지. 기획 배경부터 운영 방식, 셀러 구성, 성과까지 공개합니다."
         >
           <div className="mt-10 flex flex-wrap gap-3">
             <div
@@ -188,7 +188,7 @@ export default function PortfolioPage() {
                     <br className="hidden sm:block" /> 같은 방식으로 운영해 드립니다.
                   </h2>
                   <p className="leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "#c7d5ea" }}>
-                    행사 성격과 공간 조건을 알려주시면 유사 사례를 기준으로 운영 형태와 예상 규모를 제안드립니다.
+                    행사 성격과 공간 조건을 알려주시면 유사 사례를 기준으로 운영 형태와 예상 규모를 제안해 드립니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link

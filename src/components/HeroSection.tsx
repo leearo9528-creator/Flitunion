@@ -29,19 +29,19 @@ export default function HeroSection() {
             id="hero-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6"
           >
-            행사 하나를 통째로
+            행사 운영의 전 과정을
             <br />
-            맡기는 가장 확실한 방법
+            위임하는 가장 확실한 방법
             <br />
             <span style={{ color: "#3182f6" }}>행사 대행 플릿유니온</span>
           </h1>
 
           <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl" style={{ color: "#cbd5e1" }}>
-            셀러 모집부터 장비, 당일 현장 통제, 결과 보고서까지
+            셀러 모집과 장비, 당일 현장 운영, 결과 보고까지
             <br className="hidden sm:block" />
-            <strong className="text-white">행사 담당자가 할 일을</strong> 플릿 유니온이 대신합니다.
+            <strong className="text-white">행사 담당자의 업무를</strong> 플릿 유니온이 대행합니다.
             <br className="hidden sm:block" />
-            담당자는 확인하고 결정만 하시면 됩니다.
+            담당자께서는 확인과 결정만 하시면 됩니다.
           </p>
 
           {/* CTA Buttons */}

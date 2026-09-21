@@ -112,7 +112,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                 진행 프로세스
               </h2>
               <p className="text-gray-500 text-lg leading-relaxed">
-                의뢰부터 행사 완료까지, 단계별로 안내해 드립니다.
+                의뢰부터 행사 완료까지 단계별로 안내해 드립니다.
               </p>
             </div>
             <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6" role="list">
@@ -178,10 +178,10 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
         >
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 id="service-cta-heading" className="text-3xl font-black text-white leading-tight mb-4">
-              {service.title},<br />지금 바로 시작하세요
+              {service.title}<br />무료 상담을 신청하시기 바랍니다
             </h2>
             <p className="text-gray-400 leading-relaxed mb-8">
-              48시간 이내에 맞춤 기획안을 무료로 제안드립니다.
+              48시간 이내에 맞춤 기획안을 무료로 제안해 드립니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

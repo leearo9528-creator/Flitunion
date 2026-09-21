@@ -17,12 +17,12 @@ export default function PackagesSection() {
             Packages
           </span>
           <h2 id="packages-heading" className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
-            우리 행사엔 뭐가 필요한지
+            필요한 구성을 처음부터
             <br />
-            처음부터 따져보지 않으셔도 됩니다
+            검토하지 않으셔도 됩니다
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
-            행사 유형만 고르시면 셀러 구성·푸드트럭·장비·운영 인력이 묶여 나옵니다.
+            행사 유형을 선택하시면 셀러 구성, 푸드트럭, 장비, 운영 인력이 함께 제안됩니다.
           </p>
         </FadeInSection>
 
@@ -63,7 +63,7 @@ export default function PackagesSection() {
                   Seller Catalog
                 </p>
                 <h3 className="text-base font-bold text-gray-900 mb-1">셀러 품목 {sellerItems.length}종</h3>
-                <p className="text-sm text-gray-600 break-keep">어떤 셀러가 오는지 품목별로 미리 확인하세요</p>
+                <p className="text-sm text-gray-600 break-keep">참여 가능한 셀러를 품목별로 미리 확인하실 수 있습니다</p>
               </div>
               <span className="shrink-0 text-2xl transition-transform group-hover:translate-x-1" style={{ color: "#3182f6" }} aria-hidden="true">→</span>
             </Link>

@@ -87,13 +87,13 @@ export default function PartnerForm() {
         <span className="text-4xl" aria-hidden="true">🤝</span>
         <h3 className="text-xl font-black text-gray-900 mt-4 mb-2">등록 신청이 접수되었습니다</h3>
         <p className="text-sm text-gray-600 leading-relaxed mb-6 break-keep">
-          담당자가 확인 후 연락드립니다. 행사 일정이 맞는 건이 생기면 우선 연락드릴게요.
+          담당자가 확인 후 연락드립니다. 조건이 맞는 행사가 있을 때 우선 연락드리겠습니다.
           <br />
-          사진이나 포트폴리오를 아직 못 보내셨다면{" "}
+          사진이나 포트폴리오를 아직 보내지 못하셨다면{" "}
           <a href="mailto:hello@flitunion.com" className="font-semibold underline" style={{ color: "#16a34a" }}>
             hello@flitunion.com
           </a>
-          {" "}으로 보내주시면 프로필에 함께 실립니다.
+          {" "}으로 보내주시면 프로필에 함께 수록해 드립니다.
         </p>
         <button
           type="button"
@@ -199,7 +199,7 @@ export default function PartnerForm() {
       <div className="mb-4">
         <label htmlFor="link" className="block text-sm font-bold text-gray-900 mb-2">
           사진 · SNS 링크
-          <span className="ml-2 text-xs font-medium text-gray-400">선택 · 있으면 프로필이 빨리 올라갑니다</span>
+          <span className="ml-2 text-xs font-medium text-gray-400">선택 · 제출하시면 프로필 등록이 빨라집니다</span>
         </label>
         <input
           id="link"
@@ -227,7 +227,7 @@ export default function PartnerForm() {
 
       {status === "error" ? (
         <p role="alert" className="text-sm mb-4 px-4 py-3 rounded-xl" style={{ background: "#fef2f2", color: "#b91c1c", border: "1px solid #fecaca" }}>
-          {error} 계속 실패하면 hello@flitunion.com 으로 보내주세요.
+          {error} 문제가 계속되면 hello@flitunion.com 으로 보내주시기 바랍니다.
         </p>
       ) : null}
 
@@ -240,8 +240,8 @@ export default function PartnerForm() {
       </button>
 
       <p className="text-xs text-gray-500 leading-relaxed mt-4 break-keep">
-        등록은 무료이고, 신청한다고 참가 의무가 생기지 않습니다. 사업자등록·영업신고·위생교육·필요 전력 같은
-        세부 조건은 실제 섭외가 진행될 때 확인합니다. 보내주신 연락처는 행사 섭외 연락 외의 용도로 쓰지 않습니다.
+        등록은 무료이며, 신청하신다고 하여 참가 의무가 발생하지는 않습니다. 사업자등록·영업신고·위생교육·필요 전력 같은
+        세부 조건은 실제 섭외가 진행될 때 확인합니다. 보내주신 연락처는 행사 섭외 연락 외의 용도로 사용하지 않습니다.
       </p>
     </form>
   );

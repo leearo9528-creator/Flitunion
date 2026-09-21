@@ -9,7 +9,7 @@ import { packages } from "@/data/packages";
 export const metadata: Metadata = {
   title: "행사 유형별 패키지 | 플릿 유니온(Flit Union) 행사 대행",
   description:
-    "대학 축제, 아파트 야시장, 지자체 축제 부스, 기업 행사. 행사 유형을 고르면 셀러 구성·푸드트럭·장비·운영 인력이 묶여 나옵니다. 유형별 운영 포인트까지 공개합니다.",
+    "대학 축제, 아파트 야시장, 지자체 축제 부스, 기업 행사. 행사 유형을 선택하시면 셀러 구성·푸드트럭·장비·운영 인력이 함께 제안됩니다. 유형별 운영 유의사항까지 공개합니다.",
   alternates: { canonical: "https://flitunion.com/packages" },
   openGraph: {
     type: "website",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://flitunion.com/packages",
     siteName: "플릿 유니온(Flit Union)",
     title: "행사 유형별 패키지 | 플릿 유니온(Flit Union) 행사 대행",
-    description: "행사 유형을 고르면 셀러 구성·푸드트럭·장비·운영 인력이 묶여 나옵니다.",
+    description: "행사 유형을 선택하시면 셀러 구성·푸드트럭·장비·운영 인력이 함께 제안됩니다.",
   },
 };
 
@@ -32,11 +32,11 @@ export default function PackagesPage() {
           breadcrumb="행사 유형별 패키지"
           title={
             <>
-              행사 유형만 고르시면
-              <br className="hidden sm:block" /> 나머지는 묶여 나옵니다
+              행사 유형을 선택하시면
+              <br className="hidden sm:block" /> 필요한 구성이 함께 제안됩니다
             </>
           }
-          description="무엇이 필요한지 처음부터 따져보실 필요 없습니다. 유형별로 셀러 구성, 푸드트럭 라인업, 장비, 운영 인력을 미리 묶어 뒀습니다. 필요 없는 항목은 빼고 조정하시면 됩니다."
+          description="필요한 구성을 처음부터 검토하지 않으셔도 됩니다. 유형별로 셀러 구성, 푸드트럭 라인업, 장비, 운영 인력을 미리 편성해 두었습니다. 불필요한 항목은 제외하고 조정하실 수 있습니다."
         />
 
         <section className="py-16 sm:py-20">
@@ -86,8 +86,8 @@ export default function PackagesPage() {
             <FadeInSection className="mt-8">
               <div className="rounded-2xl px-6 py-5" style={{ background: "#eff6ff", border: "1px solid #bfdbfe" }}>
                 <p className="text-sm text-gray-700 leading-relaxed break-keep">
-                  <strong className="font-bold text-gray-900">여기 없는 형태여도 됩니다.</strong> 패키지는 자주 의뢰받는
-                  구성을 묶어둔 것일 뿐, 고정 상품이 아닙니다. 행사 성격을 알려주시면 맞춰 구성해 드립니다.
+                  <strong className="font-bold text-gray-900">목록에 없는 형태도 가능합니다.</strong> 패키지는 자주 의뢰받는
+                  구성을 정리한 것으로 고정 상품이 아닙니다. 행사 성격을 알려주시면 맞춤 구성해 드립니다.
                 </p>
               </div>
             </FadeInSection>

@@ -35,12 +35,12 @@ export default function ServicesSection() {
             Services
           </span>
           <h2 id="services-heading" className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
-            행사 하나를 통째로,
+            행사 운영의 전 과정을
             <br />
-            창구 하나로 끝냅니다
+            하나의 창구에서 진행합니다
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
-            기획·셀러 섭외·장비·현장 운영·정산까지. 필요한 영역만 따로 맡기셔도 됩니다.
+            기획, 셀러 섭외, 장비, 현장 운영, 정산까지 제공하며 필요한 영역만 개별로 의뢰하실 수도 있습니다.
           </p>
         </FadeInSection>
 

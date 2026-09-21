@@ -19,12 +19,12 @@ export default function PortfolioSection() {
             Portfolio
           </span>
           <h2 id="portfolio-heading" className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
-            검증된 운영 실적, 직접 확인하세요
+            검증된 운영 실적을 직접 확인하실 수 있습니다
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
             대학 축제·지자체 축제·아파트 커뮤니티까지, 전국에서 직접 운영한 행사 사례입니다.
           </p>
-          <p className="text-sm text-gray-400 mt-2">카드를 클릭하면 상세 내용을 확인할 수 있습니다.</p>
+          <p className="text-sm text-gray-400 mt-2">카드를 선택하시면 상세 내용을 확인하실 수 있습니다.</p>
         </FadeInSection>
 
         {/* Portfolio Grid */}
@@ -137,7 +137,7 @@ export default function PortfolioSection() {
                             className="inline-flex items-center gap-2 px-6 py-2.5 text-white text-sm font-bold rounded-xl btn-primary"
                             onClick={() => setOpenId(null)}
                           >
-                            이런 행사 의뢰하기
+                            동일 유형 행사 문의하기
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
@@ -169,9 +169,9 @@ export default function PortfolioSection() {
         {/* CTA Banner */}
         <FadeInSection className="mt-10">
           <div className="rounded-2xl p-10 text-center text-white" style={{ background: "#3182f6" }}>
-            <h3 className="text-2xl font-black mb-3">다음 성공 사례의 주인공이 되세요</h3>
+            <h3 className="text-2xl font-black mb-3">다음 운영 사례로 함께하시기 바랍니다</h3>
             <p className="mb-6 leading-relaxed" style={{ color: "#dbeafe" }}>
-              준비하시는 행사에 맞는 운영 플랜을 무료로 제안해 드립니다.
+              준비하시는 행사에 적합한 운영 계획을 무료로 제안해 드립니다.
             </p>
             <a
               href="#contact"
