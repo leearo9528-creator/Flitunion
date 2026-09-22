@@ -48,7 +48,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                 {service.subtitle}
               </span>
               <h1 id="service-heading" className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
-                {service.icon} {service.title}
+                {service.title}
               </h1>
               <p className="text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl">
                 {service.heroDesc}

@@ -13,7 +13,6 @@ export type Service = {
   subtitle: string;
   description: string;
   heroDesc: string;
-  icon: string;
   /** 홈 카드 아이콘 (heroicons outline path의 d 값) */
   iconPath: string;
   color: string;
@@ -36,7 +35,6 @@ export const services: Service[] = [
     description: "기획부터 셀러 섭외, 장비, 현장 운영, 정산까지 행사 전 과정을 통째로 대행합니다.",
     heroDesc:
       "행사 담당자가 해야 할 일을 플릿 유니온이 대신합니다. 콘셉트 기획, 셀러·푸드트럭 섭외, 장비 렌탈, 인허가 검토, 당일 현장 운영, 정산과 결과 보고까지 — 창구 하나로 끝납니다. 의뢰인은 행사 방향만 정해 주시면 됩니다.",
-    icon: "🎪",
     iconPath:
       "M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z",
     color: "brand",
@@ -72,7 +70,6 @@ export const services: Service[] = [
     description: "대학교 축제, 카페 홀, 유휴공간 등 어떤 공간이든 플리마켓으로 전환합니다.",
     heroDesc:
       "공간 분석부터 셀러 모집, 현장 설치, 행사 운영까지 — Flit 셀러 네트워크를 기반으로 퀄리티 높은 플리마켓을 원스톱으로 대행합니다. 의뢰인은 공간만 제공하면 됩니다.",
-    icon: "🏪",
     iconPath:
       "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     color: "brand",
@@ -108,7 +105,6 @@ export const services: Service[] = [
     description: "지자체 축제와 대형 행사의 부스 존을 기획·운영하고 셀러 퀄리티를 관리합니다.",
     heroDesc:
       "대규모 축제의 부스 존 운영을 통째로 위탁받습니다. 축제 콘셉트에 맞는 셀러 구성, 대규모 인파를 고려한 동선 설계, 안전 관리, 부스 장비 일괄 렌탈까지 한 번에 진행합니다. 주최 기관은 축제 본 프로그램에만 집중하시면 됩니다.",
-    icon: "🎡",
     iconPath:
       "M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z",
     color: "rose",
@@ -144,7 +140,6 @@ export const services: Service[] = [
     description: "저녁부터 밤까지 이어지는 야시장 행사를 전문적으로 기획합니다.",
     heroDesc:
       "야간 조명, 공연, 푸드트럭, 핸드메이드 셀러가 어우러진 복합 야시장. 단순한 마켓을 넘어 방문자들이 기억하는 '경험'을 만듭니다. 플릿 유니온의 야간 행사 전담 시스템이 안전과 흥행을 동시에 보장합니다.",
-    icon: "🌙",
     iconPath:
       "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
     color: "indigo",
@@ -180,7 +175,6 @@ export const services: Service[] = [
     description: "행사 콘셉트에 맞는 푸드트럭을 직접 섭외하고 현장 배치까지 관리합니다.",
     heroDesc:
       "한식, 디저트, 글로벌 푸드까지 100대 이상의 검증된 푸드트럭 DB를 보유하고 있습니다. 행사 콘셉트와 공간 조건에 맞는 최적의 푸드트럭을 빠르게 매칭하고, 계약·배치·현장 관리까지 전 과정을 대행합니다.",
-    icon: "🚚",
     iconPath: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
     color: "orange",
     tier: "standard",
@@ -215,7 +209,6 @@ export const services: Service[] = [
     description: "부스 텐트·테이블·의자부터 조명, 배너, 간판까지 행사에 필요한 모든 장비를 렌탈로 제공합니다.",
     heroDesc:
       "행사 장비를 별도로 구매할 필요 없습니다. 플릿 유니온의 렌탈 서비스로 텐트, 테이블, 조명, 배너까지 한 번에 해결하실 수 있습니다. 운영 대행 패키지와 함께 이용하시면 렌탈 비용 할인 혜택도 제공됩니다.",
-    icon: "📦",
     iconPath: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
     color: "green",
     tier: "standard",

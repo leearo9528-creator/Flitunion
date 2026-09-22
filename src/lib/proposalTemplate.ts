@@ -119,7 +119,7 @@ export function buildProposalHtml(data: ProposalData) {
           상세 견적과 운영 일정은<br>15분 내외의 상담으로 정리해 드립니다.
         </p>
         <a href="tel:+821080188492" style="display:inline-block;background:#3182f6;color:#ffffff;padding:13px 28px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;">
-          📞 010-8018-8492 전화 상담
+          010-8018-8492 전화 상담
         </a>
         <p style="margin:14px 0 0;color:#94a3b8;font-size:12px;">또는 본 메일로 회신해 주시기 바랍니다.</p>
       </div>

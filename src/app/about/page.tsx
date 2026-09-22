@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import FadeInSection from "@/components/FadeInSection";
+import { IconBadge } from "@/components/Icon";
 import { services } from "@/data/services";
 import {
   companyInfo,
@@ -251,7 +252,7 @@ export default function AboutPage() {
                     style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xl" aria-hidden="true">{s.icon}</span>
+                      <IconBadge path={s.iconPath} size="sm" />
                       <span className="text-xs font-bold uppercase tracking-[0.12em]" style={{ color: "#3182f6" }}>
                         {s.subtitle}
                       </span>

@@ -35,6 +35,7 @@ src/
 ├── components/
 │   ├── Header.tsx
 │   ├── PageHero.tsx            # 서브페이지 공통 헤더 (breadcrumb 포함)
+│   ├── Icon.tsx                # ⭐ 라인 아이콘 정본 (ICONS + Icon + IconBadge) — 이모지 대신 이것
 │   ├── CatalogGrid.tsx         # 카탈로그 품목 카드 그리드 (사진 없으면 slug 해시 그라데이션)
 │   ├── PackagesSection.tsx     # 홈 — 행사 유형별 패키지 + 카탈로그 진입점
 │   ├── PartnerForm.tsx         # 협력사 등록 폼 (⚠️ 항목 늘리지 말 것)
@@ -69,8 +70,10 @@ src/
 | 제안해 드립니다 | 제안드립니다 |
 
 - **구어·속어 금지**: 통째로 · 끝냅니다 · 짭니다 · 깎입니다 · 뚫다 · 묶여 나옵니다 · 뭐가 · 따져보다
-- **감정 이모지 금지**: 😰 같은 표정 이모지는 카드 아이콘으로 쓰지 않는다.
-  아이콘이 필요하면 `ServicesSection`·`ProblemSolutionSection` 처럼 **heroicons 라인 SVG**(`iconPath`)를 쓴다
+- **이모지 금지**: 사용자에게 보이는 화면·이메일에 이모지를 쓰지 않는다 (2026-09-22 전수 제거 완료).
+  아이콘이 필요하면 `src/components/Icon.tsx` 의 `ICONS` 에서 골라 `<Icon>` / `<IconBadge>` 로 쓴다.
+  없는 아이콘은 heroicons outline 의 path `d` 값을 `ICONS` 에 추가한다 — 컴포넌트에 SVG 를 다시 적지 말 것.
+  ⚠️ 예외는 **Discord 봇 메시지**(`api/contact`·`api/partners`)뿐이다. 내부 채널이라 그대로 둔다
 - **느낌표 금지**, 경쟁사 비방("다른 대행사가 갖지 못한") 금지, 검증 불가한 과장 금지
 - FAQ **질문**도 격식 의문형으로 통일한다 (고객 목소리라도 소개서 톤을 따른다)
 
@@ -265,6 +268,27 @@ PPTX 안에 가둬놨었다** — 셀러 품목 27종, 푸드트럭 메뉴 24종
   - `ContactSection` "**플리마켓·야시장 운영**, 지금 바로 무료 상담받으세요" → "**행사 운영 대행**, 무료 상담을 신청하시기 바랍니다"
 - **경쟁사 비방 문구 제거** — "다른 대행사가 갖지 못한 데이터 기반 운영 역량입니다" → 자사 사실 서술로 교체
 - 검증: `next build`·`tsc`·ESLint(src 무결) 통과, 8개 주요 라우트 200, 구어체 재검사 0건, 콘솔 에러 0건
-- ⚠️ **남은 이모지** — `/packages`(🎓🏘🎡🏢), `/partners` 혜택 카드(📋🗂🎪🧾), `/about` 사업 영역·서비스
-  상세 히어로(🎪🏪🎡🌙🚚📦), `PartnerForm` 구분 선택(🚚🏪)은 **아직 이모지**다. 감정 표현은 아니라 남겨뒀으나,
-  완전히 포멀하게 가려면 라인 SVG 로 교체해야 한다 (아이콘 14종 신규 제작 필요 — 별도 작업)
+- 남은 이모지 14종은 **2026-09-22 전수 교체 완료** (아래 항목 참조)
+
+### 2026-09-22 — 🎨 이모지 전수 제거 → 라인 아이콘 정본화
+
+앞선 톤 교정에서 남겨뒀던 이모지 14종을 heroicons 라인 SVG 로 전부 교체했다.
+이모지는 렌더링이 OS·브라우저마다 달라 통제가 안 되고, B2B 제안 자료와 나란히 놓였을 때 톤이 어긋난다.
+
+- **`src/components/Icon.tsx` 신설** — 아이콘 정본. `ICONS`(path 상수 17종) + `<Icon>` + `<IconBadge>`
+  - ⚠️ 컴포넌트마다 SVG 를 다시 적지 말 것. 새 아이콘은 `ICONS` 에 heroicons outline 의 `d` 값만 추가한다
+  - `ServicesSection` 이 들고 있던 로컬 `ServiceIcon`·`ArrowIcon` 중복 정의도 여기로 흡수
+- **교체 내역**
+  | 위치 | 이전 | 이후 |
+  |---|---|---|
+  | `services.ts` | `icon` 이모지 6종 (🎪🏪🎡🌙🚚📦) | **필드 자체 삭제** — 이미 있던 `iconPath` 로 통일 |
+  | `packages.ts` | 🎓🏘🎡🏢 | `iconPath: ICONS.*` |
+  | `/partners` 혜택 | 📋🗂🎪🧾 | `<IconBadge>` |
+  | `PartnerForm` | 🚚🏪 구분 선택, 🤝 접수 완료 | `<Icon>` / 초록 원형 체크 배지 |
+  | 서비스 상세 h1 | `{icon} {title}` | 제목만 |
+  | `proposalTemplate.ts` | 📞 (고객 발송 메일) | 제거 |
+  - ⚠️ `services.ts` 의 `icon` 필드를 지우자 **타입 에러가 사용처 6곳을 정확히 짚어줬다.** 이런 정리는
+    필드를 먼저 지우고 tsc 에 맡기는 편이 빠르다
+- **Discord 봇 메시지(`api/contact`·`api/partners`)의 이모지는 유지** — 내부 채널이고 알림 구분에 도움이 된다
+- 검증: `next build`·`tsc`·ESLint(src 무결, 미사용 import 경고 1건도 제거) 통과, 10개 라우트 200,
+  **렌더된 HTML 이모지 0개**(6개 주요 경로 정규식 검사), 협력사 폼 제출 end-to-end 재확인, 콘솔 에러 0건

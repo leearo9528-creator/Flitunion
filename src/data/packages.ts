@@ -1,3 +1,5 @@
+import { ICONS } from "@/components/Icon";
+
 /**
  * 행사 유형별 패키지 정본.
  *
@@ -17,7 +19,8 @@ export type EventPackage = {
   client: string;
   summary: string;
   heroDesc: string;
-  icon: string;
+  /** 라인 아이콘 (components/Icon.tsx 의 ICONS 키에 대응하는 path) */
+  iconPath: string;
   gradient: string;
   /** 이 패키지에 들어가는 서비스 (services.ts 의 slug) */
   serviceSlugs: string[];
@@ -42,7 +45,7 @@ export const packages: EventPackage[] = [
     summary: "축제 기간 캠퍼스 플리마켓과 야시장을 학생회 인력 투입 없이 운영합니다.",
     heroDesc:
       "축제 일정은 정해졌는데 셀러 모집부터 부스 배치, 당일 현장 관리까지 학생회가 직접 감당하기는 부담이 큽니다. 플릿 유니온이 모집 공고부터 정산까지 맡고, 학생회는 축제 본 프로그램에만 집중하시면 됩니다.",
-    icon: "🎓",
+    iconPath: ICONS.academic,
     gradient: "linear-gradient(135deg, #1e3a8a 0%, #3182f6 100%)",
     serviceSlugs: ["flea-market", "night-market", "food-truck", "rental"],
     sellerSlugs: ["dessert", "goods", "keyring", "accessory", "caricature", "photo", "tarot", "henna"],
@@ -69,7 +72,7 @@ export const packages: EventPackage[] = [
     summary: "단지 내 유휴 공간에서 주민 참여형 야시장을 소음·주차 관리까지 포함해 운영합니다.",
     heroDesc:
       "주차장이나 단지 광장은 저녁 시간대에 비어 있습니다. 가족 단위 입주민이 많은 단지 특성에 맞춰 키즈존·체험존을 포함한 커뮤니티 행사로 설계하고, 관리사무소와 협업해 소음·주차·안전을 함께 관리합니다.",
-    icon: "🏘️",
+    iconPath: ICONS.home,
     gradient: "linear-gradient(135deg, #14532d 0%, #22c55e 100%)",
     serviceSlugs: ["night-market", "food-truck", "rental"],
     sellerSlugs: ["dessert", "kids", "henna", "pet", "flower", "candle", "beads", "doll"],
@@ -95,7 +98,7 @@ export const packages: EventPackage[] = [
     summary: "축제장 부스 존 구역을 통째로 위탁받아 셀러 선발부터 철수·정산까지 책임집니다.",
     heroDesc:
       "축제 본 프로그램은 주최 기관이 그대로 운영하시고, 부스 존만 넘기시면 됩니다. 지역 특산물·공예 셀러를 우선 배치해 지역색을 살리고, 대규모 인파에 대응하는 동선 설계와 안전 인력을 함께 배치합니다.",
-    icon: "🎡",
+    iconPath: ICONS.ticket,
     gradient: "linear-gradient(135deg, #881337 0%, #f43f5e 100%)",
     serviceSlugs: ["festival-booth", "food-truck", "rental"],
     sellerSlugs: ["farm", "ceramic", "maedeup", "knit", "wood", "leather", "clothing", "caricature"],
@@ -122,7 +125,7 @@ export const packages: EventPackage[] = [
     summary: "사내 행사와 브랜드 프로모션에 푸드트럭·마켓을 단독 또는 조합으로 구성합니다.",
     heroDesc:
       "푸드트럭 1대만 필요한 사내 행사부터, 유휴 공간에 정기 마켓을 여는 것까지 규모에 맞춰 구성합니다. 마켓 운영 없이 푸드트럭 섭외만, 또는 장비 렌탈만 단독으로 의뢰하셔도 됩니다.",
-    icon: "🏢",
+    iconPath: ICONS.office,
     gradient: "linear-gradient(135deg, #4a1d96 0%, #a855f7 100%)",
     serviceSlugs: ["food-truck", "event-agency", "rental", "flea-market"],
     sellerSlugs: ["dessert", "flower", "candle", "nail", "photo", "goods"],

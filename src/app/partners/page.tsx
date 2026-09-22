@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import FadeInSection from "@/components/FadeInSection";
 import PartnerForm from "@/components/PartnerForm";
+import { IconBadge, ICONS } from "@/components/Icon";
 import { sellerItems, foodtruckItems } from "@/data/catalog";
 import { keyStats } from "@/data/company";
 
@@ -26,22 +27,22 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    icon: "📋",
+    iconPath: ICONS.clipboard,
     title: "모집 공고를 직접 찾지 않으셔도 됩니다",
     desc: "등록해 두시면 행사 콘셉트와 지역이 맞을 때 플릿 유니온이 우선 연락드립니다. 매번 공고를 검색하고 신청서를 새로 작성하지 않으셔도 됩니다.",
   },
   {
-    icon: "🗂️",
+    iconPath: ICONS.document,
     title: "프로필이 제안서에 수록됩니다",
     desc: "주최사에 전달하는 카탈로그와 제안서에 품목·메뉴 프로필이 포함됩니다. 주최 기관이 구성을 선정할 때 직접 확인하는 자료입니다.",
   },
   {
-    icon: "🎪",
+    iconPath: ICONS.ticket,
     title: "대학 축제 · 지자체 축제 물량",
     desc: "개별 접촉이 어려운 대학 축제, 지자체 대형 축제, 아파트 단지 행사를 플릿 유니온이 수주하여 배정합니다.",
   },
   {
-    icon: "🧾",
+    iconPath: ICONS.calculator,
     title: "정산을 하나의 창구에서 진행합니다",
     desc: "참가비와 정산은 플릿 유니온이 주최 측과 직접 처리합니다. 행사마다 다른 담당자와 개별 협의하지 않으셔도 됩니다.",
   },
@@ -104,7 +105,7 @@ export default function PartnersPage() {
               {benefits.map((b, i) => (
                 <FadeInSection key={b.title} delay={i * 70}>
                   <div className="h-full bg-white rounded-2xl p-6 border border-gray-100" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-                    <span className="text-2xl" aria-hidden="true">{b.icon}</span>
+                    <IconBadge path={b.iconPath} />
                     <h3 className="text-base font-bold text-gray-900 mt-3 mb-2 break-keep">{b.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed break-keep">{b.desc}</p>
                   </div>

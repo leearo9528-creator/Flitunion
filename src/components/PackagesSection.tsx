@@ -2,6 +2,7 @@ import Link from "next/link";
 import FadeInSection from "./FadeInSection";
 import { packages } from "@/data/packages";
 import { sellerItems, foodtruckItems } from "@/data/catalog";
+import Icon from "@/components/Icon";
 
 /**
  * 서비스 섹션이 '무엇을 파는가' 라면 이 섹션은 '우리 행사엔 뭐가 필요한가' 에 답한다.
@@ -35,7 +36,7 @@ export default function PackagesSection() {
                 style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
               >
                 <div className="px-5 py-6 text-white" style={{ background: pkg.gradient }}>
-                  <span className="text-2xl" aria-hidden="true">{pkg.icon}</span>
+                  <Icon path={pkg.iconPath} className="w-7 h-7" />
                   <h3 className="text-base font-black mt-2.5">{pkg.title}</h3>
                   <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.8)" }}>{pkg.subtitle}</p>
                 </div>

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import FadeInSection from "@/components/FadeInSection";
 import { packages } from "@/data/packages";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "행사 유형별 패키지 | 플릿 유니온(Flit Union) 행사 대행",
@@ -50,7 +51,7 @@ export default function PackagesPage() {
                     style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
                   >
                     <div className="px-6 py-7 text-white" style={{ background: pkg.gradient }}>
-                      <span className="text-3xl" aria-hidden="true">{pkg.icon}</span>
+                      <Icon path={pkg.iconPath} className="w-8 h-8" />
                       <p className="text-xs font-bold uppercase tracking-[0.12em] mt-3 mb-1" style={{ color: "rgba(255,255,255,0.8)" }}>
                         {pkg.subtitle}
                       </p>

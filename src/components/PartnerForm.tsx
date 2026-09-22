@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icon, { ICONS } from "./Icon";
 
 /**
  * 협력사 등록 폼.
@@ -32,9 +33,9 @@ const initialForm: FormState = {
   message: "",
 };
 
-const TYPES: { value: PartnerType; label: string; desc: string; icon: string }[] = [
-  { value: "foodtruck", label: "푸드트럭", desc: "행사 출장이 가능한 푸드트럭·케이터링", icon: "🚚" },
-  { value: "seller", label: "셀러", desc: "플리마켓·팝업 참가 셀러 · 공방 · 브랜드", icon: "🏪" },
+const TYPES: { value: PartnerType; label: string; desc: string; iconPath: string }[] = [
+  { value: "foodtruck", label: "푸드트럭", desc: "행사 출장이 가능한 푸드트럭·케이터링", iconPath: ICONS.truck },
+  { value: "seller", label: "셀러", desc: "플리마켓·팝업 참가 셀러 · 공방 · 브랜드", iconPath: ICONS.storefront },
 ];
 
 const inputClass =
@@ -84,7 +85,13 @@ export default function PartnerForm() {
         className="rounded-2xl p-8 sm:p-10 text-center"
         style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
       >
-        <span className="text-4xl" aria-hidden="true">🤝</span>
+        <span
+          className="inline-flex items-center justify-center w-14 h-14 rounded-full"
+          style={{ background: "#dcfce7", color: "#16a34a" }}
+          aria-hidden="true"
+        >
+          <Icon path={ICONS.check} className="w-8 h-8" />
+        </span>
         <h3 className="text-xl font-black text-gray-900 mt-4 mb-2">등록 신청이 접수되었습니다</h3>
         <p className="text-sm text-gray-600 leading-relaxed mb-6 break-keep">
           담당자가 확인 후 연락드립니다. 조건이 맞는 행사가 있을 때 우선 연락드리겠습니다.
@@ -129,8 +136,10 @@ export default function PartnerForm() {
                   boxShadow: active ? "0 0 0 3px rgba(49,130,246,0.12)" : "none",
                 }}
               >
-                <span className="text-lg mr-2" aria-hidden="true">{t.icon}</span>
-                <span className="text-sm font-bold text-gray-900">{t.label}</span>
+                <span className="inline-flex items-center gap-2">
+                  <Icon path={t.iconPath} className="w-5 h-5" />
+                  <span className="text-sm font-bold text-gray-900">{t.label}</span>
+                </span>
                 <span className="block text-xs text-gray-500 mt-1 break-keep">{t.desc}</span>
               </button>
             );

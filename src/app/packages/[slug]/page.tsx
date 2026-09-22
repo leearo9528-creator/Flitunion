@@ -10,6 +10,7 @@ import { packages, packageBySlug } from "@/data/packages";
 import { services } from "@/data/services";
 import { sellerItems, foodtruckItems, SELLER_PHOTO_NOTICE } from "@/data/catalog";
 import { portfolioItems } from "@/data/portfolio";
+import { IconBadge } from "@/components/Icon";
 
 export function generateStaticParams() {
   return packages.map((p) => ({ slug: p.slug }));
@@ -77,7 +78,6 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
           breadcrumb={pkg.title}
           title={
             <>
-              <span className="mr-3" aria-hidden="true">{pkg.icon}</span>
               {pkg.title}
             </>
           }
@@ -144,7 +144,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
                   className="group block h-full bg-white rounded-2xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all"
                   style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
                 >
-                  <span className="text-xl" aria-hidden="true">{s.icon}</span>
+                  <IconBadge path={s.iconPath} size="sm" />
                   <h3 className="text-sm font-bold text-gray-900 mt-2 mb-1 break-keep">{s.title}</h3>
                   <span className="text-xs font-semibold" style={{ color: "#3182f6" }}>자세히 보기 →</span>
                 </Link>

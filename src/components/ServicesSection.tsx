@@ -2,25 +2,12 @@
 
 import Link from "next/link";
 import FadeInSection from "./FadeInSection";
+import Icon, { ICONS } from "./Icon";
 import { flagshipService, standardServices } from "@/data/services";
 
 /** 서비스 정의는 src/data/services.ts 가 정본 — 이 파일에 목록을 다시 두지 말 것 */
 
-function ServiceIcon({ path, className = "w-6 h-6" }: { path: string; className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={path} />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
-  );
-}
+const ArrowIcon = () => <Icon path={ICONS.arrowRight} className="w-4 h-4" strokeWidth={2} />;
 
 export default function ServicesSection() {
   const oddTail = standardServices.length % 2 === 1;
@@ -62,7 +49,7 @@ export default function ServicesSection() {
                     className="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0"
                     style={{ background: "rgba(255,255,255,0.14)", color: "#ffffff" }}
                   >
-                    <ServiceIcon path={flagshipService.iconPath} />
+                    <Icon path={flagshipService.iconPath} />
                   </span>
                   <span
                     className="text-xs font-bold px-2.5 py-1 rounded-full"
@@ -128,7 +115,7 @@ export default function ServicesSection() {
                     className="inline-flex items-center justify-center w-11 h-11 rounded-xl mb-5 transition-colors"
                     style={{ background: "#eff6ff", color: "#3182f6" }}
                   >
-                    <ServiceIcon path={service.iconPath} />
+                    <Icon path={service.iconPath} />
                   </div>
 
                   <p className="text-xs font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#3182f6" }}>
