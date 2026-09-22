@@ -13,11 +13,9 @@ export default function JsonLd() {
     alternateName: "Flit Union",
     url: "https://flitunion.com",
     logo: "https://flitunion.com/logo.svg",
-    foundingDate: "2024-08",
+    // ⚠️ foundingDate(설립일)·address(상세 소재지)는 의도적으로 넣지 않는다 — company.ts 주석 참조
     address: {
       "@type": "PostalAddress",
-      addressLocality: "도봉구",
-      addressRegion: "서울특별시",
       addressCountry: "KR",
     },
     contactPoint: {

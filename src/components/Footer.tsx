@@ -98,12 +98,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs" style={{ borderColor: "#1f2937", color: "#4b5563" }}>
-          <p>
-            © {currentYear} Flit Union 플릿 유니온. All rights reserved.
-            <span className="hidden sm:inline"> · </span>
-            <br className="sm:hidden" />
-            사업자등록번호 655-26-02147
-          </p>
+          <p>© {currentYear} Flit Union 플릿 유니온. All rights reserved.</p>
           <nav aria-label="하단 링크">
             <ul className="flex gap-5">
               <li>

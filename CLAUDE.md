@@ -292,3 +292,19 @@ PPTX 안에 가둬놨었다** — 셀러 품목 27종, 푸드트럭 메뉴 24종
 - **Discord 봇 메시지(`api/contact`·`api/partners`)의 이모지는 유지** — 내부 채널이고 알림 구분에 도움이 된다
 - 검증: `next build`·`tsc`·ESLint(src 무결, 미사용 import 경고 1건도 제거) 통과, 10개 라우트 200,
   **렌더된 HTML 이모지 0개**(6개 주요 경로 정규식 검사), 협력사 폼 제출 end-to-end 재확인, 콘솔 에러 0건
+
+### 2026-09-22 (2) — 🔒 회사 정보 과다 노출 제거
+
+`/about` 회사 개요 표에 **대표자 실명 · 사업자등록번호 · 설립일 · 상세 소재지**가 한자리에 모여 있었다.
+개별로는 무해하지만 함께 놓이면 **신생 1인 업체로 읽혀** 지자체·대학·기업 상대 영업에 불리하다.
+(설립 2024년 8월 = 1년차, 소재지 도봉구, 연락처가 010 개인번호)
+
+- **`company.ts`** — `companyInfo` 10행 → **6행** (회사명·사업 영역·운영 플랫폼·서비스 지역·이메일·전화)
+- **`Footer.tsx`** — 하단 저작권 줄의 사업자등록번호 제거
+- **`JsonLd.tsx`** — Organization 스키마의 `foundingDate`·상세 주소 제거 (`addressCountry: "KR"` 만 유지).
+  ⚠️ 이게 빠지기 쉽다 — 화면에서 지워도 **구조화 데이터로 검색엔진에 계속 제출되고 있었다**
+- ⚠️ **다시 추가하지 말 것** (`company.ts` 주석에 명시). 상시 공시 의무 항목이 아니며
+  (통신판매업 신고가 필요한 전자상거래를 하지 않는다), 계약 단계에서 사업자등록증으로 제시하면 충분하다
+- ⚠️ **회사소개서 PPTX 3장에는 그대로 남아 있다** — `docs/flitunion-company-profile.pptx` 는 별도 재생성 필요
+  (`node docs/company-profile-build.js`). 정본 데이터는 `docs/company-profile-research.md` 에도 기재돼 있다
+- 검증: `next build`·`tsc`·ESLint(src 무결) 통과, 홈·`/about`·`/portfolio` 렌더 HTML 에서 4개 값 노출 0건
