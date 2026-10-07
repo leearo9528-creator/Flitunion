@@ -47,7 +47,7 @@ export const packages: EventPackage[] = [
       "축제 일정은 정해졌는데 셀러 모집부터 부스 배치, 당일 현장 관리까지 학생회가 직접 감당하기는 부담이 큽니다. 플릿 유니온이 모집 공고부터 정산까지 맡고, 학생회는 축제 본 프로그램에만 집중하시면 됩니다.",
     iconPath: ICONS.academic,
     gradient: "linear-gradient(135deg, #1e3a8a 0%, #3182f6 100%)",
-    serviceSlugs: ["flea-market", "night-market", "food-truck", "rental"],
+    serviceSlugs: ["flea-market", "night-market", "food-truck", "experience-booth", "stage-performance", "rental"],
     sellerSlugs: ["dessert", "goods", "keyring", "accessory", "caricature", "photo", "tarot", "henna"],
     foodtruckSlugs: ["cozeat", "dakgangjeong", "dutch-kkochi", "churros", "chan-cafe"],
     includes: [
@@ -74,7 +74,7 @@ export const packages: EventPackage[] = [
       "주차장이나 단지 광장은 저녁 시간대에 비어 있습니다. 가족 단위 입주민이 많은 단지 특성에 맞춰 키즈존·체험존을 포함한 커뮤니티 행사로 설계하고, 관리사무소와 협업해 소음·주차·안전을 함께 관리합니다.",
     iconPath: ICONS.home,
     gradient: "linear-gradient(135deg, #14532d 0%, #22c55e 100%)",
-    serviceSlugs: ["night-market", "food-truck", "rental"],
+    serviceSlugs: ["night-market", "food-truck", "experience-booth", "rental"],
     sellerSlugs: ["dessert", "kids", "henna", "pet", "flower", "candle", "beads", "doll"],
     foodtruckSlugs: ["hoeori", "churros", "chan-cafe", "cozeat", "takoyaki"],
     includes: [
@@ -88,7 +88,7 @@ export const packages: EventPackage[] = [
       { title: "반려동물 동반 여부를 먼저 정합니다", desc: "동반 허용 단지라면 반려동물 셀러를 넣어 호응이 큽니다. 비허용이면 아예 빼야 현장에서 마찰이 없습니다." },
       { title: "정기 운영으로 전환하면 단가가 내려갑니다", desc: "월 2회 이상 정기 운영 계약 시 운영비 할인과 전담 매니저 우선 배정이 적용됩니다." },
     ],
-    portfolioIds: ["hanam-apt-night", "seoul-apt-night"],
+    portfolioIds: ["hanam-apt-night", "seoul-apt-night", "wirye-experience-booth"],
   },
   {
     slug: "local-festival-booth",
@@ -100,7 +100,7 @@ export const packages: EventPackage[] = [
       "축제 본 프로그램은 주최 기관이 그대로 운영하시고, 부스 존만 넘기시면 됩니다. 지역 특산물·공예 셀러를 우선 배치해 지역색을 살리고, 대규모 인파에 대응하는 동선 설계와 안전 인력을 함께 배치합니다.",
     iconPath: ICONS.ticket,
     gradient: "linear-gradient(135deg, #881337 0%, #f43f5e 100%)",
-    serviceSlugs: ["festival-booth", "food-truck", "rental"],
+    serviceSlugs: ["festival-booth", "experience-booth", "stage-performance", "food-truck", "rental"],
     sellerSlugs: ["farm", "ceramic", "maedeup", "knit", "wood", "leather", "clothing", "caricature"],
     foodtruckSlugs: ["gopchang", "steak", "pizza", "kebab", "bulchobap", "eomuk"],
     includes: [
@@ -115,7 +115,7 @@ export const packages: EventPackage[] = [
       { title: "전통·민속 테마는 품목을 좁힙니다", desc: "민속 축제는 전통 공예·전통 먹거리·체험형으로 좁혀야 축제와 따로 놀지 않습니다." },
       { title: "지방도 전국 출장합니다", desc: "광역시·지역 거점 도시는 원격 기획 + 현지 파트너 운영으로 진행하며 출장 비용은 견적에 포함해 투명하게 안내합니다." },
     ],
-    portfolioIds: ["seoul-festival-booth", "chungcheong-festival", "seoul-folk-festival"],
+    portfolioIds: ["seoul-festival-booth", "chungcheong-festival", "seoul-folk-festival", "yeongdeungpo-family-festival"],
   },
   {
     slug: "corporate-event",
@@ -127,7 +127,7 @@ export const packages: EventPackage[] = [
       "푸드트럭 1대만 필요한 사내 행사부터, 유휴 공간에 정기 마켓을 여는 것까지 규모에 맞춰 구성합니다. 마켓 운영 없이 푸드트럭 섭외만, 또는 장비 렌탈만 단독으로 의뢰하셔도 됩니다.",
     iconPath: ICONS.office,
     gradient: "linear-gradient(135deg, #4a1d96 0%, #a855f7 100%)",
-    serviceSlugs: ["food-truck", "event-agency", "rental", "flea-market"],
+    serviceSlugs: ["food-truck", "experience-booth", "event-agency", "rental", "flea-market"],
     sellerSlugs: ["dessert", "flower", "candle", "nail", "photo", "goods"],
     foodtruckSlugs: ["specialty", "bakery-coffee", "chan-cafe", "steak", "gimbap", "cocktail"],
     includes: [

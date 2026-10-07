@@ -31,7 +31,7 @@ src/
 │   ├── robots.ts               # robots.txt 자동 생성
 │   ├── sitemap.ts              # sitemap.xml (services.ts 에서 파생)
 │   ├── api/contact/route.ts    # 문의 폼 API (Discord Webhook)
-│   └── services/[slug]/        # 서비스 상세 페이지 (동적 라우팅)
+│   └── services/[slug]/        # 서비스 상세 페이지 (동적 라우팅, 8종)
 ├── components/
 │   ├── Header.tsx
 │   ├── PageHero.tsx            # 서브페이지 공통 헤더 (breadcrumb 포함)
@@ -49,12 +49,12 @@ src/
 │   ├── GoogleAnalytics.tsx     # GA4 스크립트 (NEXT_PUBLIC_GA_ID)
 │   └── JsonLd.tsx              # 구조화 데이터 (services.ts + faq.ts 에서 파생)
 └── data/
-    ├── services.ts             # ⭐ 서비스 정본 (홈 카드 + 상세 + 푸터 + 사이트맵 + JSON-LD)
+    ├── services.ts             # ⭐ 서비스 정본 8종 (홈 카드 + 상세 + 푸터 + 사이트맵 + JSON-LD)
     ├── company.ts              # ⭐ 회사 정보 정본 (회사소개서와 동기화)
     ├── faq.ts                  # ⭐ FAQ 정본 (FaqSection + JSON-LD FAQPage)
     ├── catalog.ts              # ⭐ 셀러 품목 27종 + 푸드트럭 메뉴 24종 (⚠️ 사진 정책 주석 필독)
     ├── packages.ts             # ⭐ 행사 유형별 패키지 4종 (services·catalog·portfolio 를 slug 로 참조)
-    └── portfolio.ts            # 포트폴리오 케이스 스터디
+    └── portfolio.ts            # 포트폴리오 케이스 스터디 10건 (체험부스 2건 포함)
 ```
 
 ### ✍️ 카피 톤 규칙 — 포멀 격식체
@@ -308,3 +308,23 @@ PPTX 안에 가둬놨었다** — 셀러 품목 27종, 푸드트럭 메뉴 24종
 - ⚠️ **회사소개서 PPTX 3장에는 그대로 남아 있다** — `docs/flitunion-company-profile.pptx` 는 별도 재생성 필요
   (`node docs/company-profile-build.js`). 정본 데이터는 `docs/company-profile-research.md` 에도 기재돼 있다
 - 검증: `next build`·`tsc`·ESLint(src 무결) 통과, 홈·`/about`·`/portfolio` 렌더 HTML 에서 4개 값 노출 0건
+
+### 2026-10-07 — 🎪 체험부스·무대공연 흡수 — "기획·운영·푸드트럭·체험부스·플리마켓·무대공연 원스톱"
+
+**배경:** 실제로는 체험부스(석고방향제·에코백·키링 만들기·페이스페인팅 등)를 **직접 운영**하고
+무대·음향 협력사까지 수배하고 있는데(Notion `📥 아로 할일`·`🧾 견적서 관리`·연락망 DB 기준:
+위례·영등포·봉산탈춤·평택·강동·안산·용인 체험부스, 부산 청춘주파수 무대 행사), 사이트에는
+체험부스·무대공연이 서비스로 없었다. 하트펠트(heartfelt) 석고공방 쪽 체험 콘텐츠를 플릿 유니온 사이트에 통합했다.
+
+- **서비스 6종 → 8종** (`src/data/services.ts`)
+  - 신설 `experience-booth` **체험부스 기획·운영** — 보유 프로그램 15종+(석고방향제·에코백 드로잉·키캡/키링/슈링클스 키링·뱃지·손거울·가면·팽이·하바리움펜·말랑이·캘리그라피 압화 책갈피·페이스페인팅·타투스티커·삐에로·전통 테마), 참여 인원 단위 견적, 무료 체험 후 유료 전환, 15분 타임제(8명) 대기열 관리, 전기 불필요 — 전부 실제 운영 페이지에서 가져온 방식이다
+  - 신설 `stage-performance` **무대·공연 연출** — 이동식 무대·트러스, PA 음향·조명, LED 전광판, 공연팀 섭외, 큐시트, 발전차·간선 수배. 수치(음향·무대 협력사 29곳·조명 6곳)는 Notion 「셀러 네트워크 안내」(2026-09-10 기준)에서 가져왔다
+  - flagship `event-agency` 태그를 행사 유형 → **대행 범위 6종**(행사 기획·행사 운영·푸드트럭·체험부스·플리마켓·무대공연)으로 교체, features 9종으로 확장
+  - 홈 카드·상세·푸터·사이트맵(18 URL)·JSON-LD 전부 자동 반영 확인
+- **홈 히어로** — 배지와 본문을 "행사 기획과 운영, 푸드트럭·체험부스·플리마켓·무대공연까지 … 한 번에 대행"으로, 본문 아래 대행 범위 칩 6개 추가
+- **정본 동기화** — `company.ts` 사업 영역·One-Stop 원칙·협업 대상 / `faq.ts` 2문항 추가(체험부스·무대공연 → 12문항, JSON-LD 자동) / `layout.tsx` 설명문·키워드 7종 추가 / `packages.ts` 4개 패키지에 신규 서비스 slug 연결
+- **진행 이력 8건 → 10건** (`portfolio.ts`) — 체험부스 실제 운영 2건 추가: 위례신도시 상가 축제(부스 5개, 무료→유료 전환, 정산 완료)·영등포공원 유아숲 가족축제(3종, 타임제). 둘 다 2026-10-03 완료 건. ⚠️ 10/8 이후 예정 건(봉산탈춤·평택·강동·안산·용인·부산)은 **끝나기 전엔 올리지 말 것**
+- `Icon.tsx` 에 `sparkles`·`microphone` 추가
+- ⚠️ **하트펠트 원본 자료는 저장소·Notion·Drive 어디에도 없었다** — Notion 연락망의 "석고공방 하트펠트" 카드(품목만 있고 본문 없음)와 체험부스 운영 페이지들로 구성했다. 소개서·사진 등 하트펠트 자료가 따로 있으면 `docs/` 에 넣고 서비스 상세 사진으로 보강할 것
+- ⚠️ `docs/flitunion-company-profile.pptx` 는 아직 6종 기준 — `company-profile-build.js` 재생성 필요
+- 검증: `next build`·`tsc`·ESLint(src 무결) 통과, 신규 2개 포함 9개 라우트 200 / 없는 slug 404, 렌더 HTML 이모지 0개, 구어체 재검사 0건, 데스크탑·모바일 스크린샷 확인

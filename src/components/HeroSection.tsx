@@ -21,7 +21,7 @@ export default function HeroSection() {
             style={{ background: "rgba(49,130,246,0.18)", border: "1px solid rgba(49,130,246,0.4)", color: "#93c5fd" }}
           >
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#3182f6" }} aria-hidden="true" />
-            플릿(Flit) 셀러 네트워크 기반 행사 대행
+            행사 기획 · 운영 · 푸드트럭 · 체험부스 · 플리마켓 · 무대공연
           </div>
 
           {/* H1 */}
@@ -37,12 +37,25 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl" style={{ color: "#cbd5e1" }}>
-            셀러 모집과 장비, 당일 현장 운영, 결과 보고까지
+            행사 기획과 운영, 푸드트럭·체험부스·플리마켓·무대공연까지
             <br className="hidden sm:block" />
-            <strong className="text-white">행사 담당자의 업무를</strong> 플릿 유니온이 대행합니다.
+            <strong className="text-white">행사 담당자의 업무를</strong> 플릿 유니온이 한 번에 대행합니다.
             <br className="hidden sm:block" />
             담당자께서는 확인과 결정만 하시면 됩니다.
           </p>
+
+          {/* 대행 범위 6종 */}
+          <ul className="flex flex-wrap gap-2 mb-10" aria-label="대행 범위">
+            {["행사 기획", "행사 운영", "푸드트럭", "체험부스", "플리마켓", "무대공연"].map((item) => (
+              <li
+                key={item}
+                className="text-sm font-semibold px-3.5 py-1.5 rounded-full"
+                style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.18)", color: "#e2e8f0" }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">

@@ -27,7 +27,7 @@ export default function ServicesSection() {
             하나의 창구에서 진행합니다
           </h2>
           <p className="text-gray-600 text-lg max-w-xl mx-auto leading-relaxed">
-            기획, 셀러 섭외, 장비, 현장 운영, 정산까지 제공하며 필요한 영역만 개별로 의뢰하실 수도 있습니다.
+            행사 기획과 운영, 푸드트럭, 체험부스, 플리마켓, 무대공연까지 제공하며 필요한 영역만 개별로 의뢰하실 수도 있습니다.
           </p>
         </FadeInSection>
 
@@ -62,7 +62,7 @@ export default function ServicesSection() {
                 <h3 className="text-2xl sm:text-3xl font-black mb-3">{flagshipService.title}</h3>
                 <p className="text-blue-100 leading-relaxed mb-5 max-w-2xl">{flagshipService.description}</p>
 
-                <ul className="flex flex-wrap gap-1.5 mb-6" aria-label="대응 가능한 행사 유형">
+                <ul className="flex flex-wrap gap-1.5 mb-6" aria-label="대행 범위">
                   {flagshipService.tags.map((tag) => (
                     <li
                       key={tag}
@@ -164,7 +164,7 @@ export default function ServicesSection() {
               <div>
                 <h3 className="text-lg font-black text-white mb-1">행사 준비의 모든 것, 한 곳에서</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  기획 · 셀러 모집 · 푸드트럭 섭외 · 장비 렌탈 · 현장 운영 · 결과 정산까지 플릿 유니온 단독으로 진행 가능합니다.
+                  기획 · 셀러 모집 · 푸드트럭 섭외 · 체험부스 운영 · 무대·공연 연출 · 장비 렌탈 · 현장 운영 · 결과 정산까지 플릿 유니온 단독으로 진행 가능합니다.
                 </p>
               </div>
               <a

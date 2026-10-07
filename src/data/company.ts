@@ -16,7 +16,7 @@
  */
 export const companyInfo: { label: string; value: string; href?: string }[] = [
   { label: "회사명", value: "플릿 유니온 (Flit Union)" },
-  { label: "사업 영역", value: "행사 기획·운영 대행 · 셀러/푸드트럭 섭외 · 장비 렌탈" },
+  { label: "사업 영역", value: "행사 기획·운영 대행 · 푸드트럭/셀러 섭외 · 체험부스 운영 · 무대·공연 연출 · 장비 렌탈" },
   { label: "운영 플랫폼", value: "플릿(Flit) 셀러 플랫폼", href: "https://app.flitunion.com" },
   { label: "서비스 지역", value: "전국 (수도권 직영, 지방 현지 파트너 운영)" },
   { label: "이메일", value: "hello@flitunion.com", href: "mailto:hello@flitunion.com" },
@@ -47,7 +47,7 @@ export const principles: { en: string; ko: string; desc: string }[] = [
   {
     en: "One-Stop",
     ko: "원스톱",
-    desc: "행사 기획, 셀러 모집, 장비 렌탈, 현장 운영, 정산까지 전 과정을 하나의 창구에서 책임집니다.",
+    desc: "행사 기획, 셀러·푸드트럭 모집, 체험부스 운영, 무대·공연 연출, 장비 렌탈, 현장 운영, 정산까지 전 과정을 하나의 창구에서 책임집니다.",
   },
   {
     en: "Transparent",
@@ -68,7 +68,7 @@ export const problems: { target: string; question: string; solution: string }[] 
     target: "지자체 · 축제 주최 기관",
     question: "부스 존의 셀러 퀄리티와 안전 관리를 어떻게 담보할 수 있습니까?",
     solution:
-      "축제 콘셉트에 맞는 셀러·푸드트럭을 선별 배치하고, 대규모 인파에 대응하는 동선 설계와 안전 인력을 배치합니다. 부스 장비 일괄 렌탈까지 한 번에 진행합니다.",
+      "축제 콘셉트에 맞는 셀러·푸드트럭을 선별 배치하고, 대규모 인파에 대응하는 동선 설계와 안전 인력을 배치합니다. 체험부스 직영 운영, 무대·음향 설치, 부스 장비 일괄 렌탈까지 한 번에 진행합니다.",
   },
   {
     target: "카페 · 건물주 · 유휴 공간",
@@ -125,9 +125,9 @@ export const processNotes: string[] = [
 /** 협업 대상 — 소개서 15장 */
 export const partners: { title: string; desc: string }[] = [
   { title: "대학교 · 학생회", desc: "축제 플리마켓, 캠퍼스 야시장, 학생 창업 셀러 연계 운영" },
-  { title: "지자체 · 축제 주최 기관", desc: "대형 축제 부스 존 운영, 지역 특산물 셀러 구성, 장비 일괄 렌탈" },
-  { title: "아파트 단지 · 입주자대표회의", desc: "주민 참여형 야시장, 커뮤니티 마켓, 정기 행사 전환" },
-  { title: "기업 · 브랜드 행사", desc: "기업 행사 푸드트럭 섭외, 프로모션 마켓, 사내 행사 단독 섭외" },
+  { title: "지자체 · 축제 주최 기관", desc: "대형 축제 부스 존 운영, 체험부스 존, 무대·공연 연출, 지역 특산물 셀러 구성, 장비 일괄 렌탈" },
+  { title: "아파트 단지 · 입주자대표회의", desc: "주민 참여형 야시장, 어린이 체험부스, 커뮤니티 마켓, 정기 행사 전환" },
+  { title: "기업 · 브랜드 행사", desc: "기업 행사 푸드트럭 섭외, 가족 행사 체험부스, 프로모션 마켓, 사내 행사 단독 섭외" },
   { title: "카페 · 건물주 · 유휴 공간", desc: "공간 분석 기반 정기 마켓 설계, 월 정기 운영 계약" },
 ];
 
